@@ -8,29 +8,29 @@ import GooglePlay from '../../../public/assets/images/google.svg';
 import AppStore from '../../../public/assets/images/app.svg';
 import AppGallery from '../../../public/assets/images/gallery.svg';
 import paymentImg from '../../../public/assets/images/payment-method.png';
-import logoImg from '../../../public/assets/images/logo-black.png';
+import logoImg from '../../../public/assets/images/logo-footer-one.jpeg';
 
 function Footer() {
     return (
         <>
-            <footer className="bg-white border-t border-gray-200 mt-16 py-8">
-                <div className="container">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <footer className="bg-white border-t border-gray-200 mt-16">
+                <div className="container py-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
                         {/* Brand Info */}
-                        <div className="col">
+                        <div className="col lg:col-span-4">
                             <div className="flex items-center gap-2 mb-4">
-                                <Image src={logoImg} width={150} height={100} className="cursor-pointer" alt="logo"/>
+                                <Image src={logoImg} width={120} height={100} className="cursor-pointer" alt="logo"/>
                             </div>
-                            <p className="text-gray-800 font-semibold mb-4">Authorized Electronics Store in Rajshahi</p>
+                            <p className="text-gray-800 font-semibold mb-4">Authorized Electronics Store in Bogura</p>
                             <ul className="text-gray-600 space-y-2">
                                 <li className="flex items-center gap-2"><HiOutlineLocationMarker
-                                    className="text-primary"/> Yakubiar Mor, Rajshahi
+                                    className="text-primary"/> Nagar Bandar, Shibganj, Bogura
                                 </li>
                                 <li className="flex items-center gap-2"><HiOutlinePhone
-                                    className="text-primary"/> 01321764096
+                                    className="text-primary"/> 01711-318433
                                 </li>
                                 <li className="flex items-center gap-2"><HiOutlineMail
-                                    className="text-primary"/> abcrajshahi@gmail.com
+                                    className="text-primary"/> maaelectronics.shib1982@gmail.com
                                 </li>
                             </ul>
                             <div className="flex gap-3 mt-4">
@@ -44,7 +44,7 @@ function Footer() {
                         </div>
 
                         {/* Get to Know Us */}
-                        <div className="col">
+                        <div className="col lg:col-span-3">
                             <h3 className="text-[15px] font-semibold text-primary pb-2 mb-4 relative">
                                 Get to Know Us
                                 <span className="absolute bottom-0 left-0 w-1/4 border-b-2 border-primary"></span>
@@ -62,7 +62,7 @@ function Footer() {
                         </div>
 
                         {/* Help */}
-                        <div className="col">
+                        <div className="col lg:col-span-3">
                             <h3 className="text-[15px] font-semibold text-primary pb-2 mb-4 relative">
                                 Help
                                 <span className="absolute bottom-0 left-0 w-1/4 border-b-2 border-primary"></span>
@@ -79,7 +79,7 @@ function Footer() {
                         </div>
 
                         {/* Download */}
-                        <div className="col">
+                        <div className="col lg:col-span-2">
                             <h3 className="text-[15px] font-semibold text-primary pb-2 mb-4 relative">
                                 Download
                                 <span className="absolute bottom-0 left-0 w-1/4 border-b-2 border-primary"></span>
@@ -100,7 +100,7 @@ function Footer() {
                 <div className="border-t border-gray-200">
                     <div
                         className="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-gray-600 text-sm">
-                        <span>© 2025 AC WORLD | All Rights Reserved.</span>
+                        <span>© 2026 MAA ELECTRONICS | All Rights Reserved.</span>
                         <div className="flex gap-3 mt-2 md:mt-0">
                             <Image src={paymentImg} alt="payment" width={300} height={100}/>
                         </div>

@@ -22,7 +22,7 @@ function PopularTag() {
     return (
         <section
             id="popular-tag-section"
-            className="py-8 bg-gray-50 mt-8"
+            className="py-8 bg-gray-50 mt-6"
         >
             <div className="container mx-auto">
                 {/* Header */}

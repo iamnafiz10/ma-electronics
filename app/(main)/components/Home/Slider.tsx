@@ -46,7 +46,7 @@ function Slider() {
                                                     className="relative mt-6 py-2 px-8 text-[17px] text-white bg-primary rounded border border-primary overflow-hidden cursor-pointer hover:[&>span.overlay]:h-full transition-all duration-300">
                                                     <span className="relative z-10">Buy Now</span>
                                                     <span
-                                                        className="overlay absolute bottom-0 left-0 w-full h-0 bg-black/20 transition-all duration-300"></span>
+                                                        className="overlay absolute bottom-0 left-0 w-full h-0 bg-dark-primary transition-all duration-300"></span>
                                                 </button>
                                             </div>
                                         </div>
@@ -68,7 +68,7 @@ function Slider() {
                                                 <button
                                                     className="relative mt-6 py-2 px-8 text-[17px] text-white bg-black rounded border border-primary overflow-hidden cursor-pointer hover:[&>span]:h-full transition-all duration-300">
                                                     <span
-                                                        className="absolute bottom-0 left-0 w-full h-0 bg-[#11CD88]/80 transition-all duration-300"></span>
+                                                        className="absolute bottom-0 left-0 w-full h-0 bg-dark-primary transition-all duration-300"></span>
                                                     <span className="relative z-10">See More</span>
                                                 </button>
                                             </div>

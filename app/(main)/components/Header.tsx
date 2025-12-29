@@ -3,9 +3,9 @@
 import {useRef, useState, useEffect} from 'react';
 import Image from 'next/image';
 import logoImg from '../../../public/assets/images/logo-two.png'
+import cartImage from '../../../public/assets/images/icon-cart.png'
 import {
     MagnifyingGlassIcon,
-    ShoppingCartIcon,
     Bars3Icon,
     UserIcon,
     PhoneIcon,
@@ -13,21 +13,16 @@ import {
 import {FaFacebookF, FaTwitter, FaInstagram, FaYoutube, FaChevronDown} from 'react-icons/fa';
 import Link from "next/link";
 import {AiOutlineClose} from "react-icons/ai";
-
-const categories = [
-    {name: 'Refrigerator', img: '/assets/images/categories/1.png'},
-    {name: 'Freezer', img: '/assets/images/categories/2.png'},
-    {name: 'Air Conditioner', img: '/assets/images/categories/3.png'},
-    {name: 'Fan And Cables', img: '/assets/images/categories/4.png'},
-    {name: 'Television', img: '/assets/images/categories/5.png'},
-    {name: 'Motor Cycle', img: '/assets/images/categories/6.png'},
-    {name: 'Small Appliances', img: '/assets/images/categories/7.png'},
-    {name: 'Kitchen Appliance', img: '/assets/images/categories/8.png'},
-    {name: 'Washing Machine', img: '/assets/images/categories/9.png'},
-    {name: 'FRONT LOADING', img: '/assets/images/categories/6.png'},
-    {name: 'Electronics', img: '/assets/images/categories/5.png'},
-    {name: 'Top LOADING', img: '/assets/images/categories/2.png'},
-];
+import {MdChevronRight} from "react-icons/md";
+import cat1 from '../../../public/assets/images/categories/1.png'
+import cat2 from '../../../public/assets/images/categories/2.png'
+import cat3 from '../../../public/assets/images/categories/3.png'
+import cat4 from '../../../public/assets/images/categories/4.png'
+import cat5 from '../../../public/assets/images/categories/5.png'
+import cat6 from '../../../public/assets/images/categories/6.png'
+import cat7 from '../../../public/assets/images/categories/7.png'
+import cat8 from '../../../public/assets/images/categories/8.png'
+import cat9 from '../../../public/assets/images/categories/9.png'
 
 export default function Header() {
     // Category showing Desktop
@@ -58,7 +53,6 @@ export default function Header() {
 
     // Mobile menu
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const [isCategoriesOpen, setIsCategoriesOpen] = useState(false);
     const menuRef = useRef<HTMLDivElement>(null);
     const buttonRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,7 +68,6 @@ export default function Header() {
                 !buttonRef.current.contains(target)
             ) {
                 setIsMenuOpen(false);
-                setIsCategoriesOpen(false);
             }
         };
 
@@ -91,8 +84,7 @@ export default function Header() {
         setIsMenuOpen(prev => !prev);
     };
 
-    // Toggle categories submenu
-    const toggleCategories = () => setIsCategoriesOpen(!isCategoriesOpen);
+
     return (
         <header className="sticky top-0 z-50">
             {/* ================= TOP BAR ================= */}
@@ -154,67 +146,93 @@ export default function Header() {
                                 }`}
                             >
                                 <ul className="flex flex-col space-y-4 px-4 pt-8 text-white">
-                                    {/* Categories with submenu */}
-                                    <li>
-                                        <div
-                                            onClick={toggleCategories}
-                                            className="flex justify-between items-center cursor-pointer select-none"
-                                        >
-                                            <span className={`hover:font-semibold ${
-                                                isCategoriesOpen ? "font-semibold" : "font-normal"
-                                            }`}>CATEGORIES</span>
-                                            <span
-                                                className={`inline-block transition-transform duration-300 ${
-                                                    isCategoriesOpen ? "rotate-180" : "rotate-0"
-                                                }`}
-                                            >
-                                            <FaChevronDown/>
-                                          </span>
-                                        </div>
 
-                                        {/* Slide-down submenu */}
-                                        <ul
-                                            className={`flex flex-col pl-4 mt-2 space-y-2 overflow-hidden transition-[max-height] duration-300 ${
-                                                isCategoriesOpen ? "max-h-full" : "max-h-0"
-                                            }`}
-                                        >
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Refrigerator</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Freezer</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Air Conditioner</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Fan And Cables</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Television</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Motor Cycle</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Small Appliances</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Kitchen Appliance</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Washing Machine</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">FRONT LOADING</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Electronics</Link>
-                                            </li>
-                                            <li>
-                                                <Link href="#" className="hover:font-semibold">Top LOADING</Link>
-                                            </li>
-                                        </ul>
+                                    {/* Categories */}
+                                    <li>
+                                        <details className="group/categories">
+                                            <summary
+                                                className="flex justify-between items-center cursor-pointer select-none list-none">
+                                                <span
+                                                    className="group-open/categories:font-semibold hover:font-semibold">
+                                                  CATEGORIES
+                                                </span>
+                                                <FaChevronDown
+                                                    className="transition-transform duration-300 group-open/categories:rotate-180"
+                                                />
+                                            </summary>
+
+                                            <ul className="flex flex-col pl-4 mt-3 space-y-2">
+
+                                                {/* Refrigerator */}
+                                                <li>
+                                                    <details className="group/refrigerator">
+                                                        <summary
+                                                            className="flex justify-between items-center cursor-pointer select-none list-none">
+                                                              <span
+                                                                  className="group-open/refrigerator:font-semibold hover:font-semibold">
+                                                                Refrigerator
+                                                              </span>
+                                                            <FaChevronDown
+                                                                className="transition-transform duration-300 group-open/refrigerator:rotate-180"
+                                                            />
+                                                        </summary>
+
+                                                        <ul className="flex flex-col pl-4 mt-2 space-y-2">
+                                                            <li>
+                                                                <Link href="#" className="hover:font-semibold">
+                                                                    Sub Category 1
+                                                                </Link>
+                                                            </li>
+                                                            <li>
+                                                                <Link href="#" className="hover:font-semibold">
+                                                                    Sub Category 2
+                                                                </Link>
+                                                            </li>
+                                                            <li>
+                                                                <Link href="#" className="hover:font-semibold">
+                                                                    Sub Category 3
+                                                                </Link>
+                                                            </li>
+                                                        </ul>
+                                                    </details>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Freezer
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Air Conditioner
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Fan and Cables
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Television
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Motor Cycle
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Small Appliances
+                                                    </Link>
+                                                </li>
+                                                <li>
+                                                    <Link href="#" className="hover:font-semibold">
+                                                        Kichen Appliances
+                                                    </Link>
+                                                </li>
+                                            </ul>
+                                        </details>
                                     </li>
 
                                     {/* Other menu items */}
@@ -232,14 +250,595 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* Shop by Category */}
-                    <button ref={categoryBtnRef}
-                            onClick={() => setShowCategories((prev) => !prev)}
-                            className="hidden md:flex text-[14px] cursor-pointer items-center gap-2 bg-dark-primary text-white px-4 py-2 rounded-md font-semibold"
-                    >
-                        <Bars3Icon className="h-5 w-5"/>
-                        Shop By Category
-                    </button>
+                    <div className="relative">
+                        {/* Shop by Category */}
+                        <button ref={categoryBtnRef}
+                                onClick={() => setShowCategories((prev) => !prev)}
+                                className="hidden md:flex cursor-pointer items-center gap-2 bg-dark-primary text-white px-4 py-2 rounded-md font-semibold"
+                        >
+                            <Bars3Icon className="h-5 w-5"/>
+                            Shop By Category
+                        </button>
+
+                        {/* ================= CATEGORY DROPDOWN ================= */}
+                        {showCategories && (
+                            <div
+                                ref={categoryBoxRef}
+                                className="hidden md:block w-[270px] absolute top-[43px] left-0 bg-white p-0 rounded shadow-md z-50">
+                                <div className="category_box relative">
+                                    <ul className="bg-white rounded divide-y divide-gray-200">
+
+                                        {/* ITEM WITH SUBMENU with MultiSub Menu */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat1} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Refrigerator
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+
+                                                    {/* ITEM WITH SECOND SUBMENU */}
+                                                    <li className="relative group/double">
+                                                        <Link
+                                                            href="#"
+                                                            className="flex items-center justify-between px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                            <MdChevronRight className="text-gray-400 text-lg"/>
+                                                        </Link>
+
+                                                        {/* SECOND SUBMENU */}
+                                                        <div
+                                                            className="absolute top-0 left-full ml-1
+                                                             pointer-events-none opacity-0 -translate-x-2
+                                                             group-hover/double:opacity-100
+                                                             group-hover/double:translate-x-0
+                                                             group-hover/double:pointer-events-auto
+                                                             transition-all duration-300 ease-out">
+
+                                                            {/* Triangle */}
+                                                            <div className="absolute -left-2 top-2 w-0 h-0
+                                                              border-t-12 border-b-12 border-r-12
+                                                              border-t-transparent border-b-transparent border-r-white"/>
+
+                                                            <ul className="bg-white shadow-lg rounded w-48 py-2">
+                                                                <li>
+                                                                    <Link href="#"
+                                                                          className="block px-4 py-2 text-sm hover:bg-gray-100">
+                                                                        Multi Sub Menu
+                                                                    </Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link href="#"
+                                                                          className="block px-4 py-2 text-sm hover:bg-gray-50">
+                                                                        Multi Sub
+                                                                    </Link>
+                                                                </li>
+                                                                <li>
+                                                                    <Link href="#"
+                                                                          className="block px-4 py-2 text-sm hover:bg-gray-50">
+                                                                        Multi Sub
+                                                                    </Link>
+                                                                </li>
+                                                            </ul>
+                                                        </div>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat2} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Freezer
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat3} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                      Air Conditioner
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat4} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Fan and Cables
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat5} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Television
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* NORMAL ITEMS */}
+                                        <li>
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat6} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Motor Cycle
+                                                  </span>
+                                                </div>
+                                            </Link>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat7} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Small Appliances
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat8} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Kitchen Appliance
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+
+                                        {/* ITEM WITH SUBMENU */}
+                                        <li className="relative group">
+                                            <Link
+                                                href="#"
+                                                className="flex items-center justify-between p-3 rounded hover:bg-gray-100 transition"
+                                            >
+                                                <div className="flex items-center gap-3">
+                                                    <Image src={cat9} width={20} alt="cat-img"/>
+                                                    <span className="text-[14px] font-semibold text-gray-800">
+                                                        Washing machine
+                                                    </span>
+                                                </div>
+                                                <MdChevronRight className="text-gray-400 text-xl"/>
+                                            </Link>
+
+                                            {/* FIRST SUBMENU */}
+                                            <div
+                                                className="absolute top-0 left-full ml-1 z-50
+                                                 pointer-events-none opacity-0 -translate-x-2
+                                                 group-hover:opacity-100 group-hover:translate-x-0
+                                                 group-hover:pointer-events-auto
+                                                 transition-all duration-300 ease-out">
+                                                {/* Triangle */}
+                                                <div className="absolute -left-2 top-2 w-0 h-0
+                                                    border-t-12 border-b-12 border-r-12
+                                                    border-t-transparent border-b-transparent border-white"/>
+
+                                                <ul className="bg-white shadow-lg rounded w-52 py-2">
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Sub Menu
+                                                        </Link>
+                                                    </li>
+                                                    {/* NORMAL SUB ITEM */}
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                    <li>
+                                                        <Link
+                                                            href="#"
+                                                            className="block px-4 py-2 text-sm hover:bg-gray-50"
+                                                        >
+                                                            Single Door
+                                                        </Link>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        )}
+                    </div>
 
                     {/* Search */}
                     <div className="hidden md:flex flex-1">
@@ -250,7 +849,7 @@ export default function Header() {
                                 className="w-full px-4 py-2 rounded-l-md outline-none bg-white"
                             />
                             <button className="cursor-pointer bg-dark-primary px-4 rounded-r-md text-white">
-                                <MagnifyingGlassIcon className="h-6 w-6"/>
+                                <MagnifyingGlassIcon className="h-5 w-5"/>
                             </button>
                         </div>
                     </div>
@@ -267,7 +866,7 @@ export default function Header() {
                     {/* Cart & Login */}
                     <div className="flex items-center gap-4 ml-auto">
                         <div className="relative text-white cursor-pointer">
-                            <ShoppingCartIcon className="h-7 w-7"/>
+                            <Image src={cartImage} className="h-7 w-7" alt="Cart-Image"/>
                             <span
                                 className="absolute -top-2 -right-2 bg-white text-primary text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                                 0
@@ -275,42 +874,13 @@ export default function Header() {
                         </div>
 
                         <button
-                            className="flex cursor-pointer items-center gap-2 border border-white text-white px-4 text-[14px] py-2 rounded-md">
-                            <UserIcon className="h-5 w-5"/>
+                            className="flex cursor-pointer items-center gap-2 border border-white text-white px-2 text-[14px] py-2 rounded-md">
+                            <UserIcon className="h-4 w-4"/>
                             Log in
                         </button>
                     </div>
                 </div>
             </div>
-
-            {/* ================= CATEGORY DROPDOWN ================= */}
-            {showCategories && (
-                <div ref={categoryBoxRef}
-                     className="absolute top-full left-0 w-full bg-white border-t border-primary shadow-md z-50">
-                    <div className="max-w-7xl mx-auto px-6 py-6">
-                        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-                            {categories.map((cat) => (
-                                <div
-                                    key={cat.name}
-                                    className="group cat_wrap flex flex-col items-center text-center gap-3 cursor-pointer"
-                                >
-                                    <div
-                                        className="w-10 h-10 rounded-full border border-gray-300 cat_border flex items-center justify-center overflow-hidden">
-                                        <Image
-                                            src={cat.img}
-                                            alt={cat.name}
-                                            width={28}
-                                            height={28}
-                                            className="transition-transform duration-300 group-hover:scale-110"
-                                        />
-                                    </div>
-                                    <h4 className="font-medium text-[14px] group-hover:text-primary">{cat.name}</h4>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            )}
 
             {/* ================= MOBILE SEARCH ================= */}
             <div className="md:hidden bg-primary">

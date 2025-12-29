@@ -3,8 +3,9 @@
 
 @theme {
     --font-primary: "Inter", "sans-serif";
-    --color-primary: #11CD88;
-    --color-dark-primary: #0fb377;
+    --color-primary: #0fabb1;
+    --color-dark-primary: #0d7d81;
+    --color-buy-button: #233F6C;
 }
 
 @layer base {
