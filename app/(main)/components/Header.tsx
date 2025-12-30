@@ -92,7 +92,9 @@ export default function Header() {
                 <div className="container">
                     <div className="flex justify-between items-center h-[15px]">
                         {/* Logo */}
-                        <Image src={logoImg} className="cursor-pointer" alt="Logo" width={100} priority/>
+                        <Link href='/'>
+                            <Image src={logoImg} className="cursor-pointer" alt="Logo" width={100} priority/>
+                        </Link>
 
                         <div className="right_side flex items-center gap-8">
                             <div className="hidden md:flex gap-6 font-semibold text-[10px]">

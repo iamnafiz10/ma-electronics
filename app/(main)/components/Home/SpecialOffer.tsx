@@ -63,9 +63,9 @@ function SpecialOffer() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -84,9 +84,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -105,9 +105,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -126,9 +126,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -147,9 +147,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -168,9 +168,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -189,9 +189,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -210,9 +210,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -238,9 +238,9 @@ function SpecialOffer() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -259,9 +259,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -280,9 +280,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -301,9 +301,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -322,9 +322,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -343,9 +343,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -364,9 +364,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -385,9 +385,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -413,9 +413,9 @@ function SpecialOffer() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -434,9 +434,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -455,9 +455,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -476,9 +476,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -497,9 +497,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -518,9 +518,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -539,9 +539,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -560,9 +560,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -588,9 +588,9 @@ function SpecialOffer() {
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -609,9 +609,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -630,9 +630,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -651,9 +651,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -672,9 +672,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -693,9 +693,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -714,9 +714,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">
@@ -735,9 +735,9 @@ function SpecialOffer() {
                                 </div>
                                 <div
                                     className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
-                                    <div className="flex items-center justify-between pr-8">
+                                    <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
-                                               className="w-[120px] group-hover:scale-110 transition duration-500"
+                                               className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
                                                alt="ProductImg"/>
                                         <div>
                                             <h3 className="text-[16px] text-black capitalize font-semibold">

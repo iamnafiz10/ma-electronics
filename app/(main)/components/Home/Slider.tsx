@@ -31,7 +31,7 @@ function Slider() {
                                         <div className="wrapper relative">
                                             <Image
                                                 src={sliderOneImg}
-                                                className="w-full h-[250px] md:h-[410px] rounded"
+                                                className="w-full h-[280px] md:h-[310px] lg:h-[370px] xl:h-[410px] rounded"
                                                 alt="SliderOne"
                                             />
                                             <div
@@ -56,7 +56,7 @@ function Slider() {
                                         <div className="wrapper relative">
                                             <Image
                                                 src={sliderTwoImg}
-                                                className="w-full h-[250px] md:h-[410px] rounded"
+                                                className="w-full h-[280px] md:h-[310px] lg:h-[370px] xl:h-[410px] rounded"
                                                 alt="SliderTwo"
                                             />
                                             <div
@@ -90,14 +90,14 @@ function Slider() {
                             </div>
                         </div>
                         <div className="col md:col-span-3 flex flex-col items-end w-full space-y-2">
-                            <div className="w-full h-[200px] overflow-hidden rounded-md">
+                            <div className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
                                 <Image
                                     src={offerOne}
                                     className="rounded-md w-full h-full cursor-pointer transition-transform duration-700 ease-out hover:scale-110"
                                     alt="offerOne"
                                 />
                             </div>
-                            <div className="w-full h-[200px] overflow-hidden rounded-md">
+                            <div className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
                                 <Image
                                     src={offerTwo}
                                     className="rounded-md w-full h-full cursor-pointer transition-transform duration-500 ease-out hover:scale-110"

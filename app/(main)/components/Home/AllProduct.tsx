@@ -14,7 +14,7 @@ import cartImage from "@/public/assets/images/icon-cart.png";
 import Link from "next/link";
 
 function AllProduct() {
-    // Load More Products
+    // Load More Product
     const [loadMoreProducts, setLoadMoreProducts] = useState(false);
     return (
         <>
@@ -1018,7 +1018,7 @@ function AllProduct() {
                                     View More
                                 </Link>
                             ) : (
-                                "Load More Products"
+                                "Load More Product"
                             )}
                         </button>
                     </div>
