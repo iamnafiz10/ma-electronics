@@ -2,7 +2,7 @@
 
 import {useRef, useState, useEffect} from 'react';
 import Image from 'next/image';
-import logoImg from '../../../public/assets/images/logo-two.png'
+import logoImg from '../../../public/assets/images/new-logo.jpeg'
 import cartImage from '../../../public/assets/images/icon-cart.png'
 import {
     MagnifyingGlassIcon,
@@ -90,10 +90,10 @@ export default function Header() {
             {/* ================= TOP BAR ================= */}
             <div className="bg-dark-primary text-white text-sm">
                 <div className="container">
-                    <div className="flex justify-between items-center h-[15px]">
+                    <div className="flex justify-between items-center h-[20px]">
                         {/* Logo */}
                         <Link href='/'>
-                            <Image src={logoImg} className="cursor-pointer" alt="Logo" width={100} priority/>
+                            <Image src={logoImg} className="cursor-pointer" alt="Logo" width={120} priority/>
                         </Link>
 
                         <div className="right_side flex items-center gap-8">
@@ -125,7 +125,7 @@ export default function Header() {
 
             {/* ================= MAIN HEADER ================= */}
             <div className="bg-primary">
-                <div className="container py-2 flex flex-wrap items-center gap-4">
+                <div className="container py-3 flex flex-wrap items-center gap-4">
                     {/*Mobile Category/Menu and icon*/}
                     <div className="cat_menu_icon flex md:hidden">
                         <div className="relative">
@@ -875,11 +875,11 @@ export default function Header() {
                             </span>
                         </Link>
 
-                        <button
-                            className="flex cursor-pointer items-center gap-2 border border-white text-white px-2 text-[14px] py-2 rounded-md">
+                        <Link href='/user/login'
+                              className="flex items-center gap-2 border border-white text-white px-2 text-[14px] py-2 rounded-md">
                             <UserIcon className="h-4 w-4"/>
                             Log in
-                        </button>
+                        </Link>
                     </div>
                 </div>
             </div>
