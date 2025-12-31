@@ -2,8 +2,9 @@
 
 import {useRef, useState, useEffect} from 'react';
 import Image from 'next/image';
-import logoImg from '../../../public/assets/images/new-logo.jpeg'
+import logoImg from '../../../public/assets/images/new-logo.png'
 import cartImage from '../../../public/assets/images/icon-cart.png'
+import headerAdImg from '../../../public/assets/images/header-ad.jpeg'
 import {
     MagnifyingGlassIcon,
     Bars3Icon,
@@ -93,29 +94,27 @@ export default function Header() {
                     <div className="flex justify-between items-center h-[20px]">
                         {/* Logo */}
                         <Link href='/'>
-                            <Image src={logoImg} className="cursor-pointer" alt="Logo" width={120} priority/>
+                            <Image src={logoImg} className="cursor-pointer" alt="Logo" width={150} priority/>
                         </Link>
 
                         <div className="right_side flex items-center gap-8">
-                            <div className="hidden md:flex gap-6 font-semibold text-[10px]">
+                            <div className="hidden md:flex gap-6 font-semibold text-[11px]">
                                 <Link href='#'>SIGNUP / LOGIN</Link>
-                                <Link href='#'>CATEGORIES</Link>
-                                <Link href='#'>CAMPAIGNS</Link>
-                                <Link href='#'>STORE LOCATOR&apos;S</Link>
+                                <Link href='#'>STORE LOCATION</Link>
                             </div>
 
                             <div className="flex gap-4">
                                 <Link href='#'>
-                                    <FaFacebookF size={14}/>
+                                    <FaFacebookF size={15}/>
                                 </Link>
                                 <Link href='#'>
-                                    <FaTwitter size={14}/>
+                                    <FaTwitter size={15}/>
                                 </Link>
                                 <Link href='#'>
-                                    <FaInstagram size={14}/>
+                                    <FaInstagram size={15}/>
                                 </Link>
                                 <Link href='#'>
-                                    <FaYoutube size={14}/>
+                                    <FaYoutube size={15}/>
                                 </Link>
                             </div>
                         </div>
@@ -143,7 +142,7 @@ export default function Header() {
                             {/* Mobile menu */}
                             <div
                                 ref={menuRef}
-                                className={`fixed top-[140px] left-0 h-full border-t-3 border-dark-primary w-[250px] bg-primary z-50 transform transition-transform duration-300 ${
+                                className={`fixed top-[155px] left-0 h-full border-t-3 border-dark-primary w-[250px] bg-primary z-50 transform transition-transform duration-300 ${
                                     isMenuOpen ? "translate-x-0" : "-translate-x-full"
                                 }`}
                             >
@@ -854,6 +853,11 @@ export default function Header() {
                                 <MagnifyingGlassIcon className="h-5 w-5"/>
                             </button>
                         </div>
+                    </div>
+
+                    {/*Offer*/}
+                    <div className="offer_ad hidden lg:flex">
+                        <Image src={headerAdImg} width={80} className="rounded" alt="header-add"/>
                     </div>
 
                     {/* Hotline */}
