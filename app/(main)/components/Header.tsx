@@ -867,13 +867,13 @@ export default function Header() {
 
                     {/* Cart & Login */}
                     <div className="flex items-center gap-4 ml-auto">
-                        <div className="relative text-white cursor-pointer">
+                        <Link href='/cart' className="relative text-white cursor-pointer">
                             <Image src={cartImage} className="h-7 w-7" alt="Cart-Image"/>
                             <span
                                 className="absolute -top-2 -right-2 bg-white text-primary text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center">
                                 0
                             </span>
-                        </div>
+                        </Link>
 
                         <button
                             className="flex cursor-pointer items-center gap-2 border border-white text-white px-2 text-[14px] py-2 rounded-md">

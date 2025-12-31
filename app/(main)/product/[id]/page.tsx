@@ -61,7 +61,7 @@ function Page() {
                 <div className="container mt-2">
                     <div
                         className="product_cat_header px-4 py-2 gap-2 text-[12px] bg-gray-100 rounded flex items-center">
-                        <Link href='#' className="text-primary">Home</Link>
+                        <Link href='/' className="text-primary">Home</Link>
                         <div className="icon text-primary">
                             <IoIosArrowForward fontSize={15}/>
                         </div>
