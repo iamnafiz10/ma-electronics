@@ -100,7 +100,7 @@ export default function Header() {
                         <div className="right_side flex items-center gap-8">
                             <div className="hidden md:flex gap-6 font-semibold text-[11px]">
                                 <Link href='#'>SIGNUP / LOGIN</Link>
-                                <Link href='#'>STORE LOCATION</Link>
+                                <Link href='#'>SHOWROOM LOCATION</Link>
                             </div>
 
                             <div className="flex gap-4">
@@ -244,7 +244,7 @@ export default function Header() {
                                         <Link href="#" className="hover:font-semibold">CAMPAIGNS</Link>
                                     </li>
                                     <li>
-                                        <Link href="#" className="hover:font-semibold">STORE LOCATOR&apos;S</Link>
+                                        <Link href="#" className="hover:font-semibold">SHOWROOM LOCATOR&apos;S</Link>
                                     </li>
                                 </ul>
                             </div>

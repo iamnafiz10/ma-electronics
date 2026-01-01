@@ -48,6 +48,9 @@ export default function Page() {
 
     // Address checkbox
     const [useExistingAddress, setUseExistingAddress] = useState(false);
+
+    // Create Account checkbox
+    const [createAccount, setCreateAccount] = useState(false);
     return (
         <section id="checkout-section">
             <div className="container">
@@ -179,6 +182,79 @@ export default function Page() {
                                     </form>
                                 </div>
                             )}
+
+                            {/* CREATE ACCOUNT BOX */}
+                            <div className="mt-2 bg-white">
+                                {/* Checkbox */}
+                                <label className="flex items-center gap-2 py-3 cursor-pointer select-none">
+                                    <input
+                                        type="checkbox"
+                                        checked={createAccount}
+                                        onChange={(e) => setCreateAccount(e.target.checked)}
+                                        className="peer hidden"
+                                    />
+                                    <div
+                                        className="w-4 h-4 border border-gray-300 rounded
+                                        flex items-center justify-center
+                                        transition
+                                        peer-checked:bg-primary
+                                        peer-checked:border-primary"
+                                    >
+                                        <FaCheck className="text-white text-[10px]"/>
+                                    </div>
+                                    <span className="text-sm text-gray-800">
+                                        Create Account
+                                    </span>
+                                </label>
+
+                                {/* ADD DETAILS FORM */}
+                                {createAccount && (
+                                    <div className="px-4 py-4 border-t border-gray-300">
+                                        <h2 className="text-[16px] font-semibold mb-4">
+                                            Add Details
+                                        </h2>
+
+                                        <div className="space-y-4 text-[12px]">
+                                            <div className="w-full">
+                                                <label className="block mb-1 font-medium">
+                                                    Your Name <span className="text-red-500">*</span>
+                                                </label>
+                                                <input
+                                                    type="text"
+                                                    required
+                                                    className="w-full border border-gray-300 rounded-md px-3 py-2
+                                                    focus:outline-none focus:border-primary"
+                                                />
+                                            </div>
+                                            <div className="block space-y-4 md:space-y-0 md:flex items-center gap-4">
+                                                <div className="w-full">
+                                                    <label className="block mb-1 font-medium">
+                                                        Your Phone <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="tel"
+                                                        required
+                                                        className="w-full border border-gray-300 rounded-md px-3 py-2
+                                                    focus:outline-none focus:border-primary"
+                                                    />
+                                                </div>
+                                                <div className="w-full">
+                                                    <label className="block mb-1 font-medium">
+                                                        Your Email <span className="text-red-500">*</span>
+                                                    </label>
+                                                    <input
+                                                        type="email"
+                                                        required
+                                                        className="w-full border border-gray-300 rounded-md px-3 py-2
+                                                        focus:outline-none focus:border-primary"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
                         </div>
                     </div>
 
