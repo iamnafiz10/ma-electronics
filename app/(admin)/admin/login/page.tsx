@@ -4,6 +4,8 @@ import React from "react";
 import {FiMail, FiLock} from "react-icons/fi";
 import Image from "next/image";
 import logoImg from '../../../../public/assets/images/logo-footer-one.jpeg';
+import {FaCheck} from "react-icons/fa";
+import Link from "next/link";
 
 function Page() {
     return (
@@ -47,6 +49,16 @@ function Page() {
                                 focus:outline-none focus:border-primary"
                             />
                         </div>
+                    </div>
+
+                    {/* Forgot */}
+                    <div className="flex items-center justify-between text-[14px]">
+                        <Link
+                            href="/admin/forgot"
+                            className="text-primary hover:underline"
+                        >
+                            Forgot password?
+                        </Link>
                     </div>
 
                     {/* Login Button */}
