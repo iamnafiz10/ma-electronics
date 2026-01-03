@@ -13,7 +13,7 @@ import logoImg from '../../../public/assets/images/logo-footer-one.jpeg';
 function Footer() {
     return (
         <>
-            <footer className="bg-white border-t border-gray-200 mt-16">
+            <footer className="bg-white border-t pt-8 border-gray-200 mt-16">
                 <div className="container py-8">
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-8">
                         {/* Brand Info */}
@@ -95,6 +95,8 @@ function Footer() {
                         </div>
                     </div>
                 </div>
+
+                <br/>
 
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-200">

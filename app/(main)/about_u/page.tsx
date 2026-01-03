@@ -98,7 +98,7 @@ function Page() {
                             Visit Us
                         </h2>
                         <p className="text-gray-700">
-                            📍 <span className="font-medium">Showroom Address: </span>
+                            📍 <span className="font-medium">Showroom Location: </span>
                             Nagar Bandar, Shibganj, Bogura, Bangladesh
                         </p>
                         <p className="text-gray-700 mt-1">
