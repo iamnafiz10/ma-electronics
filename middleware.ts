@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
     // Redirect /admin → /admin/login
     if (pathname === "/admin") {
         return NextResponse.redirect(
-            new URL("/admin/404", request.url)
+            new URL("/admin/login", request.url)
         );
     }
 
