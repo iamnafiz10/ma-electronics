@@ -52,8 +52,26 @@
 /* =========================
    CUSTOM UTILITIES
 ========================= */
-
 /* Slider Padding */
 .custom_swiper {
     padding: 10px 0;
+}
+
+/* Custom scrollbar */
+.scrollbar-primary {
+    scrollbar-width: thin; /* Firefox (minimum) */
+    scrollbar-color: var(--color-primary) #f5f5f5;
+}
+
+.scrollbar-primary::-webkit-scrollbar {
+    width: 6px; /* Chrome, Edge, Safari */
+}
+
+.scrollbar-primary::-webkit-scrollbar-track {
+    background: #f5f5f5;
+}
+
+.scrollbar-primary::-webkit-scrollbar-thumb {
+    background-color: var(--color-primary);
+    border-radius: 6px;
 }
