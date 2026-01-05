@@ -1,22 +1,28 @@
 "use client";
+
 // import AdminSidebar from "../components/AdminSidebar";
 // import AdminHeader from "../components/AdminHeader";
 
-export default function DashboardLayout({children}: { children: React.ReactNode }) {
+export default function DashboardLayout({
+                                            children,
+                                        }: {
+    children: React.ReactNode;
+}) {
     return (
-        <div className="min-h-screen flex bg-[#F6F8FB]">
-            {/* Sidebar */}
+        <div className="min-h-screen block md:flex bg-[#F6F8FB]">
+            {/*/!* Sidebar *!/*/}
             {/*<AdminSidebar/>*/}
 
-            {/* Main */}
-            <div className="flex-1 flex flex-col overflow-auto transition-all duration-300">
-                {/*<AdminHeader/>*/}
+            {/*/!* Main Wrapper *!/*/}
+            {/*<div className="flex-1 flex flex-col min-h-screen">*/}
+            {/*    /!* Header (fixed height) *!/*/}
+            {/*    <AdminHeader/>*/}
 
-                {/* CONTENT */}
-                <main className="flex-1 px-6 py-6">
-                    {children}
-                </main>
-            </div>
+            {/*    /!* Content Scroll Area *!/*/}
+            {/*    <main className="flex-1 overflow-y-auto px-6 py-6">*/}
+            {/*        {children}*/}
+            {/*    </main>*/}
+            {/*</div>*/}
         </div>
     );
 }

@@ -7,6 +7,7 @@
 @theme {
     --font-primary: "Inter", sans-serif;
     --color-primary: #0fabb1;
+    --color-custom-opacity: #00000061;
     --color-dark-primary: #0d7d81;
     --color-buy-button: #233F6C;
 }
