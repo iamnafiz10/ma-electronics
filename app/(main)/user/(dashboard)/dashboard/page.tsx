@@ -9,6 +9,7 @@ import {
     LuUser
 } from "react-icons/lu";
 import {CiImageOn} from "react-icons/ci";
+import Link from "next/link";
 
 type TabKey =
     | "dashboard"
@@ -61,18 +62,38 @@ function Page() {
                                 {menuItems.map((item) => {
                                     const isActive = activeTab === item.key;
 
+                                    // Logout → Link
+                                    if (item.key === "logout") {
+                                        return (
+                                            <Link
+                                                key={item.key}
+                                                href="/user/login"
+                                                className="w-full flex items-center justify-between px-4 py-4 border-t border-gray-200
+                                                transition hover:bg-gray-50 text-left text-gray-500 border-l-4 border-l-transparent"
+                                            >
+                                                <div className="flex items-center gap-2">
+                                                    <span className="text-[17px]">{item.icon}</span>
+                                                    <span className="text-[14px] font-normal">
+                                                    {item.name}
+                                                  </span>
+                                                </div>
+                                            </Link>
+                                        );
+                                    }
+
+                                    // Normal tabs → Button
                                     return (
                                         <button
                                             key={item.key}
                                             onClick={() => setActiveTab(item.key)}
-                                            className={`w-full flex items-center cursor-pointer justify-between px-4 py-4 border-t border-gray-200 transition
-                                            hover:bg-gray-50 text-left
-                                            ${
+                                            className={`w-full flex items-center justify-between px-4 py-4 border-t border-gray-200
+                                                transition hover:bg-gray-50 text-left
+                                                ${
                                                 isActive
                                                     ? "border-l-4 border-l-primary text-primary"
                                                     : "text-gray-500 border-l-4 border-l-transparent"
                                             }
-                                            `}
+                                              `}
                                         >
                                             <div className="flex items-center gap-2">
                                                 <span className="text-[17px]">{item.icon}</span>
@@ -81,19 +102,20 @@ function Page() {
                                                         isActive ? "font-medium" : "font-normal"
                                                     }`}
                                                 >
-                          {item.name}
-                        </span>
+                                              {item.name}
+                                            </span>
                                             </div>
 
                                             {item.count !== undefined && (
-                                                <span
-                                                    className="min-w-[24px] h-6 flex items-center justify-center text-xs text-gray-500 bg-gray-50 border border-gray-200 rounded px-1">
-                          {item.count}
-                        </span>
+                                                <span className="min-w-[24px] h-6 flex items-center justify-center text-xs
+                                              text-gray-500 bg-gray-50 border border-gray-200 rounded px-1">
+                                              {item.count}
+                                            </span>
                                             )}
                                         </button>
                                     );
                                 })}
+
                             </nav>
                         </div>
                     </div>
