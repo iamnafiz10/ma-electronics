@@ -1,35 +1,27 @@
 import { API } from "@/constants/api";
 import { apiFetch, proxyGet, proxyPost, proxyPut } from "@/services/apiClient";
-
-export type LoginResponse = {
-  userId: string;
-  email: string;
-  userRole: "Admin" | "LocalAdmin" | "User";
-};
-
-export type MeResponse = {
-  id: string;
-  email: string;
-  userName: string;
-  fullName: string;
-  phoneNumber?: string;
-  imageUrl?: string;
-  roles?: string[];
-  userRole?: string;
-};
+import type {
+  LoginRequest,
+  LoginResponse,
+  MeResponse,
+  UpdateProfileRequest,
+  ChangePasswordRequest,
+  MessageResponse,
+} from "..//Dto/types";
 
 export const authService = {
-  login: (email: string, password: string) =>
+  login: (payload: LoginRequest) =>
     apiFetch<LoginResponse>(API.auth.login, {
       method: "POST",
-      body: JSON.stringify({ email, password }),
+      body: JSON.stringify(payload),
     }),
 
-  logout: () => apiFetch<{ ok: true }>(API.auth.logout, { method: "POST" }),
-  me: () => proxyGet<MeResponse>("auth/me"), 
-  updateProfile: (payload: { fullName: string; phoneNumber?: string; imageBase64?: string }) =>
-    proxyPut<{ message: string }>("auth/profile", payload),
-  changePassword: (payload: { currentPassword: string; newPassword: string }) =>
-    proxyPost<{ message: string }>("auth/changePassword", payload),
-};
+  logout: () =>
+    apiFetch<{ ok: true }>(API.auth.logout, {
+      method: "POST",
+    }),
 
+  me: () => proxyGet<MeResponse>(API.backend.me),
+  updateProfile: (p) => proxyPut<MessageResponse>(API.backend.updateProfile, p),
+  changePassword: (p) => proxyPost<MessageResponse>(API.backend.changePassword, p),
+};

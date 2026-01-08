@@ -1,4 +1,5 @@
-import { proxyGet, proxyPost } from "@/src/services/apiClient";
+import { API } from "@/constants/api";
+import { proxyGet, proxyPost } from "@/services/apiClient";
 
 export const shopService = {
   getProducts: () => proxyGet("products"),

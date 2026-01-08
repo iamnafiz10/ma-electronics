@@ -5,15 +5,26 @@ type AnyObj = Record<string, any>;
 
 function pickToken(data: AnyObj) {
   const t = data?.tokens ?? data ?? {};
+
   const accessToken =
-    t.accessToken ?? t.AccessToken ?? t.token ?? t.Token ?? data?.accessToken ?? data?.AccessToken;
+    t.accessToken ??
+    t.AccessToken ??
+    t.token ??
+    t.Token ??
+    data?.accessToken ??
+    data?.AccessToken;
 
   const refreshToken =
-    t.refreshToken ?? t.RefreshToken ?? data?.refreshToken ?? data?.RefreshToken;
+    t.refreshToken ??
+    t.RefreshToken ??
+    data?.refreshToken ??
+    data?.RefreshToken;
 
-  // optional
   const accessExpiresInSec =
-    t.accessExpiresInSec ?? t.AccessExpiresInSec ?? data?.accessExpiresInSec ?? data?.AccessExpiresInSec;
+    t.accessExpiresInSec ??
+    t.AccessExpiresInSec ??
+    data?.accessExpiresInSec ??
+    data?.AccessExpiresInSec;
 
   return { accessToken, refreshToken, accessExpiresInSec };
 }
@@ -34,7 +45,12 @@ function clearAuthCookies(res: NextResponse) {
   res.cookies.set("user_role", "", { path: "/", maxAge: 0 });
 }
 
-function setAuthCookies(res: NextResponse, accessToken: string, refreshToken?: string, accessExpiresInSec?: number) {
+function setAuthCookies(
+  res: NextResponse,
+  accessToken: string,
+  refreshToken?: string,
+  accessExpiresInSec?: number
+) {
   res.cookies.set("access_token", accessToken, {
     httpOnly: true,
     secure: process.env.NODE_ENV === "production",
@@ -57,7 +73,6 @@ function setAuthCookies(res: NextResponse, accessToken: string, refreshToken?: s
 async function callBackend(req: Request, backendUrl: string, accessToken?: string) {
   const headers = new Headers(req.headers);
 
-  // remove hop-by-hop / irrelevant headers
   headers.delete("host");
   headers.delete("content-length");
 
@@ -70,9 +85,7 @@ async function callBackend(req: Request, backendUrl: string, accessToken?: strin
 
   const method = req.method.toUpperCase();
   const body =
-    method === "GET" || method === "HEAD"
-      ? undefined
-      : await req.arrayBuffer(); // supports json/text/multipart
+    method === "GET" || method === "HEAD" ? undefined : await req.arrayBuffer();
 
   return fetch(backendUrl, {
     method,
@@ -82,7 +95,10 @@ async function callBackend(req: Request, backendUrl: string, accessToken?: strin
 }
 
 async function refreshAccessToken(base: string) {
-  const refresh = cookies().get("refresh_token")?.value;
+  // ✅ cookies() is a Promise in newer Next.js
+  const cookieStore = await cookies();
+  const refresh = cookieStore.get("refresh_token")?.value;
+
   if (!refresh) return { ok: false as const, reason: "No refresh token" };
 
   const r = await fetch(`${base}/auth/refresh`, {
@@ -91,7 +107,11 @@ async function refreshAccessToken(base: string) {
     body: JSON.stringify({ refreshToken: refresh }),
   });
 
-  if (!r.ok) return { ok: false as const, reason: `Refresh failed (${r.status})` };
+  if (!r.ok) {
+    const data = await readJsonSafe(r);
+    const msg = (data && (data.message || data.title)) || `Refresh failed (${r.status})`;
+    return { ok: false as const, reason: msg };
+  }
 
   const data = await r.json().catch(() => ({}));
   const { accessToken, refreshToken, accessExpiresInSec } = pickToken(data);
@@ -101,17 +121,33 @@ async function refreshAccessToken(base: string) {
   return { ok: true as const, accessToken, refreshToken, accessExpiresInSec };
 }
 
-async function handler(req: Request, params: { path: string[] }) {
+async function handler(req: Request, ctx: any) {
   const base = process.env.BACKEND_API_URL;
   if (!base) {
     return NextResponse.json({ message: "BACKEND_API_URL is missing" }, { status: 500 });
   }
 
-  // keep query string
   const incomingUrl = new URL(req.url);
-  const backendUrl = `${base}/${params.path.join("/")}${incomingUrl.search}`;
 
-  const access = cookies().get("access_token")?.value;
+  // ✅ params may be a Promise in newer Next.js
+  const resolvedParams = await Promise.resolve(ctx?.params);
+  const parts: string[] | undefined = resolvedParams?.path;
+
+  if (!parts?.length) {
+    return NextResponse.json(
+      {
+        message: "Missing proxy path",
+        hint: "Use /api/proxy/<path>. Example: /api/proxy/auth/me",
+      },
+      { status: 400 }
+    );
+  }
+
+  const backendUrl = `${base}/${parts.join("/")}${incomingUrl.search}`;
+console.log("Proxying to backend URL:", backendUrl);
+  // ✅ cookies() may be a Promise
+  const cookieStore = await cookies();
+  const access = cookieStore.get("access_token")?.value;
 
   // 1) first attempt
   let backendRes = await callBackend(req, backendUrl, access);
@@ -130,15 +166,14 @@ async function handler(req: Request, params: { path: string[] }) {
     }
 
     backendRes = await callBackend(req, backendUrl, refreshed.accessToken);
+    
 
-    // If retry still 401, clear cookies
     if (backendRes.status === 401) {
       const out = NextResponse.json({ message: "Unauthorized" }, { status: 401 });
       clearAuthCookies(out);
       return out;
     }
 
-    // success after refresh => return response + set new cookies
     const contentType = backendRes.headers.get("content-type") ?? "application/json";
     const body = await backendRes.arrayBuffer();
 
@@ -151,7 +186,7 @@ async function handler(req: Request, params: { path: string[] }) {
     return out;
   }
 
-  // Normal response passthrough
+  // Normal passthrough
   const contentType = backendRes.headers.get("content-type") ?? "application/json";
   const body = await backendRes.arrayBuffer();
 
@@ -162,17 +197,17 @@ async function handler(req: Request, params: { path: string[] }) {
 }
 
 export async function GET(req: Request, ctx: any) {
-  return handler(req, ctx.params);
+  return handler(req, ctx);
 }
 export async function POST(req: Request, ctx: any) {
-  return handler(req, ctx.params);
+  return handler(req, ctx);
 }
 export async function PUT(req: Request, ctx: any) {
-  return handler(req, ctx.params);
+  return handler(req, ctx);
 }
 export async function PATCH(req: Request, ctx: any) {
-  return handler(req, ctx.params);
+  return handler(req, ctx);
 }
 export async function DELETE(req: Request, ctx: any) {
-  return handler(req, ctx.params);
+  return handler(req, ctx);
 }

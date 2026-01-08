@@ -1,12 +1,13 @@
-import { HttpService } from './http.service';
-import { API_URL } from '@/constants/url.constants';
+
+import { API } from "@/constants/api";
+import { proxyGet, proxyPost } from "@/services/apiClient";
 
 export class UserService {
   static getProfile() {
-    return HttpService.get(API_URL.USER.PROFILE);
+    return proxyGet(API.auth.me);
   }
 
   static getUsers() {
-    return HttpService.get(API_URL.USER.LIST);
+    return proxyGet(API.auth.me);
   }
 }
