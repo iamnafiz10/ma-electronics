@@ -55,16 +55,22 @@ const AdminSidebar: React.FC = () => {
         },
         {
             id: 2,
+            title: "Menus",
+            icon: <FiMenu className="h-5 w-5"/>,
+            path: "/admin/menus",
+        },
+        {
+            id: 3,
             title: "Orders",
             icon: <FiShoppingCart className="h-5 w-5"/>,
             path: "/admin/orders",
             subItems: [
-                {id: 21, title: "All Orders", path: "/admin/orders"},
-                {id: 22, title: "Pending Orders", path: "/admin/orders/pending-orders"},
-                {id: 23, title: "Progress Orders", path: "/admin/orders/progress-orders"},
-                {id: 24, title: "Delivered Orders", path: "/admin/orders/delivered-orders"},
-                {id: 25, title: "Canceled Orders", path: "/admin/orders/canceled-orders"},
-                {id: 26, title: "Customers", path: "/admin/orders/customers"},
+                {id: 31, title: "All Orders", path: "/admin/orders"},
+                {id: 32, title: "Pending Orders", path: "/admin/orders/pending-orders"},
+                {id: 33, title: "Progress Orders", path: "/admin/orders/progress-orders"},
+                {id: 34, title: "Delivered Orders", path: "/admin/orders/delivered-orders"},
+                {id: 35, title: "Canceled Orders", path: "/admin/orders/canceled-orders"},
+                {id: 36, title: "Customers", path: "/admin/orders/customers"},
             ],
         },
     ];
