@@ -13,6 +13,7 @@ import {
   FiX,
   FiChevronDown,
   FiSettings,
+  FiUserCheck,
 } from "react-icons/fi";
 
 import logoImg from "../../../../public/assets/images/new-logo.png";
@@ -34,26 +35,38 @@ const menuItems: MenuItem[] = [
   },
   {
     id: 2,
+    title: "Menus",
+    icon: <FiMenu className="h-5 w-5" />,
+    path: "/admin/menus",
+  },
+  {
+    id: 3,
+    title: "Roles",
+    icon: <FiUserCheck className="h-5 w-5" />,
+    path: "/admin/roles",
+  },
+  {
+    id: 4,
     title: "Orders",
     icon: <FiShoppingCart className="h-5 w-5" />,
     path: "/admin/orders",
     subItems: [
-      { id: 21, title: "All Orders", path: "/admin/orders" },
-      { id: 22, title: "Pending Orders", path: "/admin/orders/pending-orders" },
-      { id: 23, title: "Progress Orders", path: "/admin/orders/progress-orders" },
-      { id: 24, title: "Delivered Orders", path: "/admin/orders/delivered-orders" },
-      { id: 25, title: "Canceled Orders", path: "/admin/orders/canceled-orders" },
-      { id: 26, title: "Customers", path: "/admin/orders/customers" },
+      { id: 41, title: "All Orders", path: "/admin/orders" },
+      { id: 42, title: "Pending Orders", path: "/admin/orders/pending-orders" },
+      { id: 43, title: "Progress Orders", path: "/admin/orders/progress-orders" },
+      { id: 44, title: "Delivered Orders", path: "/admin/orders/delivered-orders" },
+      { id: 45, title: "Canceled Orders", path: "/admin/orders/canceled-orders" },
+      { id: 46, title: "Customers", path: "/admin/orders/customers" },
     ],
   },
   {
-    id: 3,
+    id: 5,
     title: "Settings",
     icon: <FiSettings className="h-5 w-5" />,
     path: "/admin/settings",
     subItems: [
-      { id: 31, title: "Update Profile", path: "/admin/dashboard/settings/profile" },
-      { id: 32, title: "Change Password", path: "/admin/dashboard/settings/security" },
+      { id: 51, title: "Update Profile", path: "/admin/settings/profile" },
+      { id: 52, title: "Change Password", path: "/admin/settings/security" },
     ],
   },
 ];
@@ -66,7 +79,8 @@ const AdminSidebar: React.FC = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
 
-  const isActive = (path: string) => pathname === path || pathname.startsWith(path + "/");
+  const isActive = (path: string) =>
+    pathname === path || pathname.startsWith(path + "/");
 
   // Detect mobile
   useEffect(() => {
@@ -176,13 +190,19 @@ const AdminSidebar: React.FC = () => {
 
         {/* Menu */}
         <div className="flex-1 overflow-y-auto p-4">
-          <div className={`space-y-2 ${isCollapsed && !isMobile ? "flex flex-col items-center" : ""}`}>
+          <div
+            className={`space-y-2 ${
+              isCollapsed && !isMobile ? "flex flex-col items-center" : ""
+            }`}
+          >
             <div className="text-xs font-semibold text-gray-500 uppercase px-3">
               {isCollapsed && !isMobile ? "━" : "MENU"}
             </div>
 
             {menuItems.map((item) => {
-              const active = isActive(item.path) || item.subItems?.some((sub) => isActive(sub.path));
+              const active =
+                isActive(item.path) ||
+                item.subItems?.some((sub) => isActive(sub.path));
               const isOpen = openMenuId === item.id;
 
               return (
@@ -192,28 +212,48 @@ const AdminSidebar: React.FC = () => {
                     <div
                       onClick={() => toggleSubMenu(item.id)}
                       className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer
-                      ${active ? "bg-primary text-white" : "hover:bg-gray-100 text-gray-700"}`}
+                      ${
+                        active
+                          ? "bg-primary text-white"
+                          : "hover:bg-gray-100 text-gray-700"
+                      }`}
                     >
                       <div className="flex items-center gap-2">
-                        <div className={active ? "text-white" : "text-primary"}>{item.icon}</div>
+                        <div className={active ? "text-white" : "text-primary"}>
+                          {item.icon}
+                        </div>
                         {(!isCollapsed || isMobile) && (
-                          <span className="text-[14px] font-medium">{item.title}</span>
+                          <span className="text-[14px] font-medium">
+                            {item.title}
+                          </span>
                         )}
                       </div>
 
                       {(!isCollapsed || isMobile) && (
-                        <FiChevronDown className={`transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                        <FiChevronDown
+                          className={`transition-transform ${
+                            isOpen ? "rotate-180" : ""
+                          }`}
+                        />
                       )}
                     </div>
                   ) : (
                     <Link href={item.path}>
                       <div
                         className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer
-                        ${active ? "bg-primary text-white" : "hover:bg-gray-100 text-gray-700"}`}
+                        ${
+                          active
+                            ? "bg-primary text-white"
+                            : "hover:bg-gray-100 text-gray-700"
+                        }`}
                       >
-                        <div className={active ? "text-white" : "text-primary"}>{item.icon}</div>
+                        <div className={active ? "text-white" : "text-primary"}>
+                          {item.icon}
+                        </div>
                         {(!isCollapsed || isMobile) && (
-                          <span className="text-[14px] font-medium">{item.title}</span>
+                          <span className="text-[14px] font-medium">
+                            {item.title}
+                          </span>
                         )}
                       </div>
                     </Link>
@@ -232,7 +272,11 @@ const AdminSidebar: React.FC = () => {
                                 : "hover:bg-gray-100 text-gray-600"
                             }`}
                           >
-                            <span className={`h-2 w-2 rounded-full ${isActive(sub.path) ? "bg-primary" : "bg-gray-400"}`} />
+                            <span
+                              className={`h-2 w-2 rounded-full ${
+                                isActive(sub.path) ? "bg-primary" : "bg-gray-400"
+                              }`}
+                            />
                             <span>{sub.title}</span>
                           </div>
                         </Link>

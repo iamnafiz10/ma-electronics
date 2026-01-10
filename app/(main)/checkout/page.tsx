@@ -154,7 +154,7 @@ export default function Page() {
                                                 <select
                                                     required
                                                     className="w-full border border-gray-300 rounded-md px-3 py-2
-                                        focus:outline-none focus:border-primary"
+                                                    focus:outline-none focus:border-primary"
                                                 >
                                                     <option value="">Select District</option>
                                                     {districts.map((district) => (
