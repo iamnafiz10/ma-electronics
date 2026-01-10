@@ -2,7 +2,6 @@ import React from 'react';
 import {FaCheckCircle, FaMoneyBillWave, FaRegChartBar, FaShoppingCart} from "react-icons/fa";
 import MonthlySalesReport from "@/app/(admin)/admin/dashboard/helper/MonthlySalesReport";
 import MonthlyEarningsReport from "@/app/(admin)/admin/dashboard/helper/MonthlyEarningsReport";
-import {FiChevronLeft, FiChevronRight} from "react-icons/fi";
 
 function Page() {
     return (
