@@ -12,8 +12,10 @@ import product14 from "@/public/assets/images/products/14.png";
 import product15 from "@/public/assets/images/products/15.png";
 import product12 from "@/public/assets/images/products/12.png";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 function CategoryWiseProduct() {
+    const router = useRouter();
     return (
         <>
             <section id="category-wise-product-section">
@@ -26,14 +28,14 @@ function CategoryWiseProduct() {
                                 <span className="block w-2 h-10 bg-primary mr-2"></span>
                                 Freezer
                             </h2>
-                            <Link href='#'
+                            <Link href='/category/id'
                                   className="more_button py-1 px-4 text-[14px] bg-primary border border-primary hover:bg-transparent hover:text-primary cursor-pointer text-white rounded">
                                 View More
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -66,9 +68,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -78,11 +79,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -115,9 +116,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -127,11 +127,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -163,9 +163,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -175,11 +174,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -211,9 +210,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -223,11 +221,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -259,9 +257,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -271,7 +268,7 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -285,14 +282,14 @@ function CategoryWiseProduct() {
                                 <span className="block w-2 h-10 bg-primary mr-2"></span>
                                 Television
                             </h2>
-                            <Link href='#'
+                            <Link href='/category/id'
                                   className="more_button py-1 px-4 text-[14px] bg-primary border border-primary hover:bg-transparent hover:text-primary cursor-pointer text-white rounded">
                                 View More
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -324,9 +321,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -336,11 +332,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -372,9 +368,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -384,11 +379,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -421,9 +416,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -433,11 +427,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -469,9 +463,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -481,11 +474,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -518,9 +511,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -530,7 +522,7 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -544,14 +536,14 @@ function CategoryWiseProduct() {
                                 <span className="block w-2 h-10 bg-primary mr-2"></span>
                                 Air Conditioner
                             </h2>
-                            <Link href='#'
+                            <Link href='/category/id'
                                   className="more_button py-1 px-4 text-[14px] bg-primary border border-primary hover:bg-transparent hover:text-primary cursor-pointer text-white rounded">
                                 View More
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -583,9 +575,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -595,11 +586,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -631,9 +622,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -643,11 +633,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -679,9 +669,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -691,11 +680,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -727,9 +716,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -739,11 +727,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -776,9 +764,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -788,7 +775,7 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -802,14 +789,14 @@ function CategoryWiseProduct() {
                                 <span className="block w-2 h-10 bg-primary mr-2"></span>
                                 Washing machine
                             </h2>
-                            <Link href='#'
+                            <Link href='/category/id'
                                   className="more_button py-1 px-4 text-[14px] bg-primary border border-primary hover:bg-transparent hover:text-primary cursor-pointer text-white rounded">
                                 View More
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -842,9 +829,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -854,11 +840,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -891,9 +877,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -903,11 +888,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -939,9 +924,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -951,11 +935,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -987,9 +971,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -999,11 +982,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1035,9 +1018,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1047,7 +1029,7 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -1061,14 +1043,14 @@ function CategoryWiseProduct() {
                                 <span className="block w-2 h-10 bg-primary mr-2"></span>
                                 Fan and Cables
                             </h2>
-                            <Link href='#'
+                            <Link href='/category/id'
                                   className="more_button py-1 px-4 text-[14px] bg-primary border border-primary hover:bg-transparent hover:text-primary cursor-pointer text-white rounded">
                                 View More
                             </Link>
                         </div>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 mt-4">
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1100,9 +1082,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1112,11 +1093,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1148,9 +1129,9 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          type="button"
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1160,11 +1141,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1197,9 +1178,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1209,11 +1189,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1245,9 +1225,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1257,11 +1236,11 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
-                            <div
-                                className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                            <div onClick={() => router.push("/product/id")}
+                                 className="col rounded-lg cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                 {/* PRODUCT IMAGE */}
                                 <div
@@ -1294,9 +1273,8 @@ function CategoryWiseProduct() {
                                     <h4 className="text-[15px] font-bold text-primary">
                                         TK: 3,200
                                     </h4>
-                                    <button
-                                        type="button"
-                                        className="flex items-center gap-1 py-1 px-2 text-[14px]
+                                    <Link href='/checkout'
+                                          className="flex items-center gap-1 py-1 px-2 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                     >
@@ -1306,7 +1284,7 @@ function CategoryWiseProduct() {
                                             className="w-[20px]"
                                         />
                                         Buy Now
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>

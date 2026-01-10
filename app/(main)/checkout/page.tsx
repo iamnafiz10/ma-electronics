@@ -61,7 +61,7 @@ export default function Page() {
                         <IoIosArrowForward fontSize={15}/>
                     </div>
                     <h4 className="text-gray-800">
-                        Shopping Cart
+                        Checkout
                     </h4>
                 </div>
 

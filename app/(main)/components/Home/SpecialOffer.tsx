@@ -8,6 +8,7 @@ import product12 from '../../../../public/assets/images/products/12.png'
 import product13 from '../../../../public/assets/images/products/13.png'
 import product14 from '../../../../public/assets/images/products/14.png'
 import Image from "next/image";
+import Link from "next/link";
 
 const tabs = [
     'On Sell',
@@ -61,8 +62,8 @@ function SpecialOffer() {
                     {activeTab === 'On Sell' && (
                         <div className="tab_wrapper">
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -81,9 +82,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -102,9 +103,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -123,9 +124,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -144,9 +145,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -165,9 +166,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -186,9 +187,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -207,9 +208,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -228,7 +229,7 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -236,8 +237,8 @@ function SpecialOffer() {
                     {activeTab === 'Hot Sell' && (
                         <div className="tab_wrapper">
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -256,9 +257,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -277,9 +278,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -298,9 +299,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -319,9 +320,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -340,9 +341,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -361,9 +362,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -382,9 +383,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -403,7 +404,7 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -411,8 +412,8 @@ function SpecialOffer() {
                     {activeTab === 'Trend' && (
                         <div className="tab_wrapper">
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -431,9 +432,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -452,9 +453,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -473,9 +474,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -494,9 +495,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -515,9 +516,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -536,9 +537,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -557,9 +558,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -578,7 +579,7 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     )}
@@ -586,8 +587,8 @@ function SpecialOffer() {
                     {activeTab === 'Best Selling' && (
                         <div className="tab_wrapper">
                             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-4">
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product9}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -606,9 +607,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product10}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -627,9 +628,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product11}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -648,9 +649,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product12}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -669,9 +670,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product7}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -690,9 +691,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product8}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -711,9 +712,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product13}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -732,9 +733,9 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div
-                                    className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
+                                </Link>
+                                <Link href='/category/id'
+                                      className="col group border border-gray-300 hover:border-primary rounded cursor-pointer">
                                     <div className="flex items-center justify-start px-2">
                                         <Image src={product14}
                                                className="w-[80px] xl:w-[100px] group-hover:scale-110 transition duration-500"
@@ -753,7 +754,7 @@ function SpecialOffer() {
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     )}

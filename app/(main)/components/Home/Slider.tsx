@@ -11,6 +11,7 @@ import offerOne from '../../../../public/assets/images/offer1.jpg'
 import offerTwo from '../../../../public/assets/images/offer2.jpg'
 import Image from "next/image";
 import {HiOutlineArrowLeft, HiOutlineArrowRight} from "react-icons/hi";
+import Link from "next/link";
 
 function Slider() {
     return (
@@ -42,12 +43,14 @@ function Slider() {
                                                 <h4 className="text-[18px] font-semibold text-black">
                                                     Starting from 1200 TK
                                                 </h4>
-                                                <button
-                                                    className="relative mt-6 py-2 px-8 text-[17px] text-white bg-primary rounded border border-primary overflow-hidden cursor-pointer hover:[&>span.overlay]:h-full transition-all duration-300">
-                                                    <span className="relative z-10">Buy Now</span>
-                                                    <span
-                                                        className="overlay absolute bottom-0 left-0 w-full h-0 bg-dark-primary transition-all duration-300"></span>
-                                                </button>
+                                                <Link href='/shop'>
+                                                    <button
+                                                        className="relative mt-6 py-2 px-8 text-[17px] text-white bg-primary rounded border border-primary overflow-hidden cursor-pointer hover:[&>span.overlay]:h-full transition-all duration-300">
+                                                        <span className="relative z-10">Buy Now</span>
+                                                        <span
+                                                            className="overlay absolute bottom-0 left-0 w-full h-0 bg-dark-primary transition-all duration-300"></span>
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </SwiperSlide>
@@ -65,12 +68,14 @@ function Slider() {
                                                     PRODUCTS</h2>
                                                 <h4 className="text-[18px] font-semibold text-black">Winter
                                                     Collection</h4>
-                                                <button
-                                                    className="relative mt-6 py-2 px-8 text-[17px] text-white bg-black rounded border border-primary overflow-hidden cursor-pointer hover:[&>span]:h-full transition-all duration-300">
+                                                <Link href='/category/id'>
+                                                    <button
+                                                        className="relative mt-6 py-2 px-8 text-[17px] text-white bg-black rounded border border-primary overflow-hidden cursor-pointer hover:[&>span]:h-full transition-all duration-300">
                                                     <span
                                                         className="absolute bottom-0 left-0 w-full h-0 bg-dark-primary transition-all duration-300"></span>
-                                                    <span className="relative z-10">See More</span>
-                                                </button>
+                                                        <span className="relative z-10">See More</span>
+                                                    </button>
+                                                </Link>
                                             </div>
                                         </div>
                                     </SwiperSlide>
@@ -90,20 +95,22 @@ function Slider() {
                             </div>
                         </div>
                         <div className="col md:col-span-3 flex flex-col items-end w-full space-y-2">
-                            <div className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
+                            <Link href='/category/id'
+                                  className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
                                 <Image
                                     src={offerOne}
                                     className="rounded-md w-full h-full cursor-pointer transition-transform duration-700 ease-out hover:scale-110"
                                     alt="offerOne"
                                 />
-                            </div>
-                            <div className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
+                            </Link>
+                            <Link href='/category/id'
+                                  className="w-full h-[200px] md:h-[150px] lg:h-[180px] xl:h-[200px] overflow-hidden rounded-md">
                                 <Image
                                     src={offerTwo}
                                     className="rounded-md w-full h-full cursor-pointer transition-transform duration-500 ease-out hover:scale-110"
                                     alt="offerTwo"
                                 />
-                            </div>
+                            </Link>
                         </div>
                     </div>
                 </div>
