@@ -9,5 +9,13 @@ export const API = {
     changePassword: "Auth/changePassword",
     updateProfile: "Auth/profile",
   },
+ menu: {
+    list: "/api/proxy/Menu/getAll",
+    menucreate: "/api/proxy/Menu/create",
+    menuedit: (id: number) => `/api/proxy/Menu/edit/${id}`,
+    menuupdate: "/api/proxy/Menu/update",
+    menudelete: (id: number) => `/api/proxy/Menu/delete/${id}`,
+  },
+ 
   proxy: (path: string) => `/api/proxy/${path.replace(/^\/+/, "")}`,
 } as const;

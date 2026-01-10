@@ -37,7 +37,7 @@ const menuItems: MenuItem[] = [
     id: 2,
     title: "Menus",
     icon: <FiMenu className="h-5 w-5" />,
-    path: "/admin/menus",
+    path: "/admin/dashboard/menus",
   },
   {
     id: 3,

@@ -33,8 +33,7 @@ export async function apiFetch<T>(
     headers: {
       "Content-Type": "application/json",
       ...(init?.headers || {}),
-    },
-    // cookie-based auth তাই credentials same-origin ok
+    }, 
     credentials: "same-origin",
   });
 
