@@ -558,7 +558,7 @@ function Page() {
 
                         <div className="py-4 border-b border-t border-gray-200">
                             <form action="" method="">
-                                <div className="input_box flex items-center gap-2">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2">
                                     <div className="w-full">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Name<span className="text-red-400">*</span>
@@ -570,7 +570,7 @@ function Page() {
                                             focus:outline-none focus:border-primary"
                                         />
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Phone<span className="text-red-400">*</span>
                                         </label>
@@ -583,7 +583,7 @@ function Page() {
                                     </div>
                                 </div>
 
-                                <div className="input_box text-[14px] flex items-center gap-2 mt-4">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2 mt-4">
                                     <div className="w-full">
                                         <label className="block mb-1 font-medium">
                                             District <span className="text-red-500">*</span>
@@ -601,7 +601,7 @@ function Page() {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Email
                                         </label>
@@ -614,13 +614,13 @@ function Page() {
                                     </div>
                                 </div>
 
-                                <div className="input_box flex items-center gap-2 mt-4">
-                                    <div className="w-full">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2 mt-4">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Address<span className="text-red-400">*</span>
                                         </label>
                                         <textarea rows={3}
-                                                  placeholder="Enter Name"
+                                                  placeholder="Enter Address"
                                                   className="w-full text-[14px] border border-gray-300 rounded p-3 py-2
                                                   focus:outline-none focus:border-primary"
                                         >
@@ -677,7 +677,7 @@ function Page() {
 
                         <div className="py-4 border-b border-t border-gray-200">
                             <form action="" method="">
-                                <div className="input_box flex items-center gap-2">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2">
                                     <div className="w-full">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Name<span className="text-red-400">*</span>
@@ -689,7 +689,7 @@ function Page() {
                                             focus:outline-none focus:border-primary"
                                         />
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Phone<span className="text-red-400">*</span>
                                         </label>
@@ -702,7 +702,7 @@ function Page() {
                                     </div>
                                 </div>
 
-                                <div className="input_box text-[14px] flex items-center gap-2 mt-4">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2 mt-4">
                                     <div className="w-full">
                                         <label className="block mb-1 font-medium">
                                             District <span className="text-red-500">*</span>
@@ -720,7 +720,7 @@ function Page() {
                                             ))}
                                         </select>
                                     </div>
-                                    <div className="w-full">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Email
                                         </label>
@@ -733,13 +733,13 @@ function Page() {
                                     </div>
                                 </div>
 
-                                <div className="input_box flex items-center gap-2 mt-4">
-                                    <div className="w-full">
+                                <div className="input_box text-[14px] block sm:flex items-center gap-2 mt-4">
+                                    <div className="w-full mt-4 sm:mt-0">
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Address<span className="text-red-400">*</span>
                                         </label>
                                         <textarea rows={3}
-                                                  placeholder="Enter Name"
+                                                  placeholder="Enter Address"
                                                   className="w-full text-[14px] border border-gray-300 rounded p-3 py-2
                                                   focus:outline-none focus:border-primary"
                                         >

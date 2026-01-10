@@ -11,7 +11,7 @@ import {
     FiChevronRight,
     FiMenu,
     FiX,
-    FiChevronDown,
+    FiChevronDown, FiUserCheck,
 } from "react-icons/fi";
 import logoImg from "../../../../public/assets/images/new-logo.png";
 
@@ -61,16 +61,22 @@ const AdminSidebar: React.FC = () => {
         },
         {
             id: 3,
+            title: "Roles",
+            icon: <FiUserCheck className="h-5 w-5"/>,
+            path: "/admin/roles",
+        },
+        {
+            id: 4,
             title: "Orders",
             icon: <FiShoppingCart className="h-5 w-5"/>,
             path: "/admin/orders",
             subItems: [
-                {id: 31, title: "All Orders", path: "/admin/orders"},
-                {id: 32, title: "Pending Orders", path: "/admin/orders/pending-orders"},
-                {id: 33, title: "Progress Orders", path: "/admin/orders/progress-orders"},
-                {id: 34, title: "Delivered Orders", path: "/admin/orders/delivered-orders"},
-                {id: 35, title: "Canceled Orders", path: "/admin/orders/canceled-orders"},
-                {id: 36, title: "Customers", path: "/admin/orders/customers"},
+                {id: 41, title: "All Orders", path: "/admin/orders"},
+                {id: 42, title: "Pending Orders", path: "/admin/orders/pending-orders"},
+                {id: 43, title: "Progress Orders", path: "/admin/orders/progress-orders"},
+                {id: 44, title: "Delivered Orders", path: "/admin/orders/delivered-orders"},
+                {id: 45, title: "Canceled Orders", path: "/admin/orders/canceled-orders"},
+                {id: 46, title: "Customers", path: "/admin/orders/customers"},
             ],
         },
     ];
