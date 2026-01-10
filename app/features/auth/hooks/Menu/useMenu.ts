@@ -41,3 +41,20 @@ async function loadMenus(setMenus: any, setIsLoading: any) {
     setIsLoading(false);
   }
 }
+
+
+const parentOptions = useMemo(() => {
+  // root ছাড়া অন্য সব menu কে parent হিসেবে allow
+  return menus.map(m => ({ id: m.id, title: m.title }));
+}, [menus]);
+
+const menusById = useMemo(() => {
+  const map = new Map<number, MenuItem>();
+  menus.forEach(m => map.set(m.id, m));
+  return map;
+}, [menus]);
+
+const parentTitle = (pid: number | null) => {
+  if (!pid) return "—";
+  return menusById.get(pid)?.title ?? "—";
+};

@@ -14,8 +14,11 @@ export const API = {
     menucreate: "/api/proxy/Menu/create",
     menuedit: (id: number) => `/api/proxy/Menu/edit/${id}`,
     menuupdate: "/api/proxy/Menu/update",
-    menudelete: (id: number) => `/api/proxy/Menu/delete/${id}`,
+    menudelete: (id: number) => `/api/proxy/Menu/delete/${id}`,    
+    myMenus: "/Menu/my",
   },
+
+  
  
   proxy: (path: string) => `/api/proxy/${path.replace(/^\/+/, "")}`,
 } as const;

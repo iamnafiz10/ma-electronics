@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
@@ -17,8 +17,10 @@ import {
 } from "react-icons/fi";
 
 import logoImg from "../../../../public/assets/images/new-logo.png";
+import { useMenuTree } from "@/app/features/auth/hooks/Menu/useMenuTree";
+import type { MenuNode } from "@/app/features/auth/Dto/MenuNode";
 
-interface MenuItem {
+interface MenuItemUI {
   id: number;
   title: string;
   icon: React.ReactNode;
@@ -26,61 +28,76 @@ interface MenuItem {
   subItems?: { id: number; title: string; path: string }[];
 }
 
-const menuItems: MenuItem[] = [
+const iconMap: Record<string, React.ReactNode> = {
+  FiHome: <FiHome className="h-5 w-5" />,
+  FiShoppingCart: <FiShoppingCart className="h-5 w-5" />,
+  FiMenu: <FiMenu className="h-5 w-5" />,
+  FiSettings: <FiSettings className="h-5 w-5" />,
+  FiUserCheck: <FiUserCheck className="h-5 w-5" />,
+};
+
+// ✅ Static Dashboard (আগের মতোই থাকবে)
+const staticMenu: MenuItemUI[] = [
   {
-    id: 1,
+    id: -1, // unique (DB id এর সাথে clash হবে না)
     title: "Dashboard",
     icon: <FiHome className="h-5 w-5" />,
     path: "/admin/dashboard",
   },
-  {
-    id: 2,
-    title: "Menus",
-    icon: <FiMenu className="h-5 w-5" />,
-    path: "/admin/dashboard/menus",
-  },
-  {
-    id: 3,
-    title: "Roles",
-    icon: <FiUserCheck className="h-5 w-5" />,
-    path: "/admin/roles",
-  },
-  {
-    id: 4,
-    title: "Orders",
-    icon: <FiShoppingCart className="h-5 w-5" />,
-    path: "/admin/orders",
-    subItems: [
-      { id: 41, title: "All Orders", path: "/admin/orders" },
-      { id: 42, title: "Pending Orders", path: "/admin/orders/pending-orders" },
-      { id: 43, title: "Progress Orders", path: "/admin/orders/progress-orders" },
-      { id: 44, title: "Delivered Orders", path: "/admin/orders/delivered-orders" },
-      { id: 45, title: "Canceled Orders", path: "/admin/orders/canceled-orders" },
-      { id: 46, title: "Customers", path: "/admin/orders/customers" },
-    ],
-  },
-   {
-    id: 3,
-    title: "Settings",
-    icon: <FiSettings className="h-5 w-5" />,
-    path: "/admin/settings",
-    subItems: [
-      { id: 31, title: "Update Profile", path: "/admin/dashboard/settings/profile" },
-      { id: 32, title: "Change Password", path: "/admin/dashboard/settings/security" },
-    ],
-  },
 ];
+
+function nodeToUI(node: MenuNode): MenuItemUI {
+  return {
+    id: node.id,
+    title: node.title,
+    path: node.url,
+    icon: iconMap[node.icon || ""] ?? <FiMenu className="h-5 w-5" />,
+    subItems: node.children?.map((c) => ({
+      id: c.id,
+      title: c.title,
+      path: c.url,
+    })),
+  };
+}
+
+function findOpenId(
+  items: MenuItemUI[],
+  isActive: (p: string) => boolean
+): number | null {
+  for (const it of items) {
+    if (
+      it.subItems?.some((s) => isActive(s.path)) ||
+      (it.subItems && isActive(it.path))
+    ) {
+      return it.id;
+    }
+  }
+  return null;
+}
 
 const AdminSidebar: React.FC = () => {
   const pathname = usePathname();
+  const { menus, loading } = useMenuTree();
+
+  const isActive = (path: string) =>
+    pathname === path || pathname.startsWith(path + "/");
+
+  // ✅ Dynamic menus (Dashboard API থেকে এলে duplicate রোধ করতে filter)
+  const dynamicMenu = useMemo(() => {
+    return (menus || [])
+      .map(nodeToUI)
+      .filter((x) => x.path !== "/admin/dashboard");
+  }, [menus]);
+
+  // ✅ Final menu list = static dashboard + dynamic
+  const menuItems = useMemo(() => {
+    return [...staticMenu, ...dynamicMenu];
+  }, [dynamicMenu]);
 
   const [isCollapsed, setIsCollapsed] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [openMenuId, setOpenMenuId] = useState<number | null>(null);
-
-  const isActive = (path: string) =>
-    pathname === path || pathname.startsWith(path + "/");
 
   // Detect mobile
   useEffect(() => {
@@ -108,17 +125,12 @@ const AdminSidebar: React.FC = () => {
 
   // Auto open parent menu if child or parent active
   useEffect(() => {
-    const activeParent = menuItems.find(
-      (item) =>
-        item.subItems?.some((sub) => isActive(sub.path)) ||
-        (item.subItems && isActive(item.path))
-    );
-    setOpenMenuId(activeParent ? activeParent.id : null);
-  }, [pathname]);
+    const id = findOpenId(menuItems, isActive);
+    setOpenMenuId(id);
+  }, [pathname, menuItems]);
 
-  const toggleSubMenu = (id: number) => {
+  const toggleSubMenu = (id: number) =>
     setOpenMenuId((prev) => (prev === id ? null : id));
-  };
 
   return (
     <>
@@ -199,93 +211,106 @@ const AdminSidebar: React.FC = () => {
               {isCollapsed && !isMobile ? "━" : "MENU"}
             </div>
 
-            {menuItems.map((item) => {
-              const active =
-                isActive(item.path) ||
-                item.subItems?.some((sub) => isActive(sub.path));
-              const isOpen = openMenuId === item.id;
+            {loading && (
+              <div className="text-[13px] text-gray-500 px-3">
+                Loading menus...
+              </div>
+            )}
 
-              return (
-                <div key={item.id}>
-                  {/* Main menu */}
-                  {item.subItems ? (
-                    <div
-                      onClick={() => toggleSubMenu(item.id)}
-                      className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer
+            {!loading &&
+              menuItems.map((item) => {
+                const active =
+                  isActive(item.path) ||
+                  item.subItems?.some((sub) => isActive(sub.path));
+                const isOpen = openMenuId === item.id;
+
+                return (
+                  <div key={item.id}>
+                    {/* Main menu */}
+                    {item.subItems ? (
+                      <div
+                        onClick={() => toggleSubMenu(item.id)}
+                        className={`flex items-center justify-between px-3 py-2 rounded-lg cursor-pointer
                       ${
                         active
                           ? "bg-primary text-white"
                           : "hover:bg-gray-100 text-gray-700"
                       }`}
-                    >
-                      <div className="flex items-center gap-2">
-                        <div className={active ? "text-white" : "text-primary"}>
-                          {item.icon}
+                      >
+                        <div className="flex items-center gap-2">
+                          <div
+                            className={active ? "text-white" : "text-primary"}
+                          >
+                            {item.icon}
+                          </div>
+                          {(!isCollapsed || isMobile) && (
+                            <span className="text-[14px] font-medium">
+                              {item.title}
+                            </span>
+                          )}
                         </div>
+
                         {(!isCollapsed || isMobile) && (
-                          <span className="text-[14px] font-medium">
-                            {item.title}
-                          </span>
+                          <FiChevronDown
+                            className={`transition-transform ${
+                              isOpen ? "rotate-180" : ""
+                            }`}
+                          />
                         )}
                       </div>
-
-                      {(!isCollapsed || isMobile) && (
-                        <FiChevronDown
-                          className={`transition-transform ${
-                            isOpen ? "rotate-180" : ""
-                          }`}
-                        />
-                      )}
-                    </div>
-                  ) : (
-                    <Link href={item.path}>
-                      <div
-                        className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer
+                    ) : (
+                      <Link href={item.path}>
+                        <div
+                          className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer
                         ${
                           active
                             ? "bg-primary text-white"
                             : "hover:bg-gray-100 text-gray-700"
                         }`}
-                      >
-                        <div className={active ? "text-white" : "text-primary"}>
-                          {item.icon}
-                        </div>
-                        {(!isCollapsed || isMobile) && (
-                          <span className="text-[14px] font-medium">
-                            {item.title}
-                          </span>
-                        )}
-                      </div>
-                    </Link>
-                  )}
-
-                  {/* Submenu */}
-                  {item.subItems && isOpen && (!isCollapsed || isMobile) && (
-                    <div className="mt-1 space-y-1 pl-6">
-                      {item.subItems.map((sub) => (
-                        <Link key={sub.id} href={sub.path}>
+                        >
                           <div
-                            className={`flex items-center gap-3 p-2 rounded-md text-[13px] cursor-pointer
+                            className={active ? "text-white" : "text-primary"}
+                          >
+                            {item.icon}
+                          </div>
+                          {(!isCollapsed || isMobile) && (
+                            <span className="text-[14px] font-medium">
+                              {item.title}
+                            </span>
+                          )}
+                        </div>
+                      </Link>
+                    )}
+
+                    {/* Submenu */}
+                    {item.subItems && isOpen && (!isCollapsed || isMobile) && (
+                      <div className="mt-1 space-y-1 pl-6">
+                        {item.subItems.map((sub) => (
+                          <Link key={sub.id} href={sub.path}>
+                            <div
+                              className={`flex items-center gap-3 p-2 rounded-md text-[13px] cursor-pointer
                             ${
                               isActive(sub.path)
                                 ? "text-primary my-2 bg-primary/10"
                                 : "hover:bg-gray-100 text-gray-600"
                             }`}
-                          >
-                            <span
-                              className={`h-2 w-2 rounded-full ${
-                                isActive(sub.path) ? "bg-primary" : "bg-gray-400"
-                              }`}
-                            />
-                            <span>{sub.title}</span>
-                          </div>
-                        </Link>
-                      ))}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+                            >
+                              <span
+                                className={`h-2 w-2 rounded-full ${
+                                  isActive(sub.path)
+                                    ? "bg-primary"
+                                    : "bg-gray-400"
+                                }`}
+                              />
+                              <span>{sub.title}</span>
+                            </div>
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
           </div>
         </div>
       </aside>
