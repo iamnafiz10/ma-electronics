@@ -59,14 +59,14 @@ const menuItems: MenuItem[] = [
       { id: 46, title: "Customers", path: "/admin/orders/customers" },
     ],
   },
-  {
-    id: 5,
+   {
+    id: 3,
     title: "Settings",
     icon: <FiSettings className="h-5 w-5" />,
     path: "/admin/settings",
     subItems: [
-      { id: 51, title: "Update Profile", path: "/admin/settings/profile" },
-      { id: 52, title: "Change Password", path: "/admin/settings/security" },
+      { id: 31, title: "Update Profile", path: "/admin/dashboard/settings/profile" },
+      { id: 32, title: "Change Password", path: "/admin/dashboard/settings/security" },
     ],
   },
 ];
