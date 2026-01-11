@@ -203,7 +203,8 @@ function Page() {
                             <div className="delivery_details mt-6 lg:mt-0 bg-gray-100 py-4 px-6 rounded">
                                 <div className="flex items-center justify-between">
                                     <h5 className="text-[14px] font-semibold">Delivery Options</h5>
-                                    <Link href='/user/dashboard' type='button' className="text-[14px] text-primary hover:underline">
+                                    <Link href='/user/dashboard' type='button'
+                                          className="text-[14px] text-primary hover:underline">
                                         Edit
                                     </Link>
                                 </div>

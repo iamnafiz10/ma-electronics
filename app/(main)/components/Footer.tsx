@@ -50,13 +50,13 @@ function Footer() {
                                 <span className="absolute bottom-0 left-0 w-1/4 border-b-2 border-primary"></span>
                             </h3>
                             <ul className="space-y-2 text-gray-600">
-                                <li><Link href="#" className="hover:text-primary transition-colors">About Us</Link></li>
-                                <li><Link href="#" className="hover:text-primary transition-colors">Privacy
+                                <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
+                                <li><Link href="/privacy-policy" className="hover:text-primary transition-colors">Privacy
                                     Policy</Link>
                                 </li>
-                                <li><Link href="#" className="hover:text-primary transition-colors">Terms &
+                                <li><Link href="/terms-and-conditions" className="hover:text-primary transition-colors">Terms &
                                     Conditions</Link></li>
-                                <li><Link href="#" className="hover:text-primary transition-colors">AC World Blog</Link>
+                                <li><Link href="#" className="hover:text-primary transition-colors">Maa Electronics Blog</Link>
                                 </li>
                             </ul>
                         </div>
@@ -72,7 +72,7 @@ function Footer() {
                                 <li><Link href="#" className="hover:text-primary transition-colors">Delivery</Link></li>
                                 <li><Link href="#" className="hover:text-primary transition-colors">Return &
                                     Replacement</Link></li>
-                                <li><Link href="#" className="hover:text-primary transition-colors">AC World
+                                <li><Link href="#" className="hover:text-primary transition-colors">Maa Electronics
                                     Support</Link>
                                 </li>
                             </ul>
