@@ -19,6 +19,7 @@ import Image from "next/image";
 import {IoLocationSharp} from "react-icons/io5";
 import {MdReply} from "react-icons/md";
 import {AiFillLike} from "react-icons/ai";
+import {useRouter} from "next/navigation";
 
 type Spec = {
     label: string;
@@ -55,6 +56,7 @@ function Page() {
     const [qty, setQty] = useState(1);
     const increment = () => setQty(prev => prev + 1);
     const decrement = () => setQty(prev => (prev > 1 ? prev - 1 : 1));
+    const router = useRouter();
     return (
         <>
             <section id="product-details-section">
@@ -320,9 +322,9 @@ function Page() {
                                                     TK. 2,200
                                                 </h4>
                                             </div>
-                                            <button
-                                                type="button"
-                                                className="flex items-center mt-2 gap-1 py-1 px-4 text-[14px]
+                                            <button onClick={() => router.push("/product/id")}
+                                                    type="button"
+                                                    className="flex items-center mt-2 gap-1 py-1 px-4 text-[14px]
                                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                                     hover:bg-primary transition"
                                             >
@@ -371,9 +373,9 @@ function Page() {
                                                     TK. 2,200
                                                 </h4>
                                             </div>
-                                            <button
-                                                type="button"
-                                                className="flex items-center mt-2 gap-1 py-1 px-4 text-[14px]
+                                            <button onClick={() => router.push("/product/id")}
+                                                    type="button"
+                                                    className="flex items-center mt-2 gap-1 py-1 px-4 text-[14px]
                                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                                     hover:bg-primary transition"
                                             >

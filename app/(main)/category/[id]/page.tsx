@@ -220,8 +220,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -269,8 +268,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -317,8 +315,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -365,8 +362,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -413,8 +409,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -460,8 +455,7 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
+                                            <Link href='/checkout'
                                                 className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
@@ -472,7 +466,7 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                     <div onClick={() => router.push("/product/id")}
@@ -509,8 +503,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -558,8 +551,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  type="button"
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -606,7 +598,7 @@ function Page() {
                                                 TK: 3,200
                                             </h4>
                                             <Link href='/checkout'
-                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
