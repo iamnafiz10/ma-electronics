@@ -16,7 +16,7 @@ import product3 from "@/public/assets/images/products/3.png";
 import product13 from "@/public/assets/images/products/13.png";
 import product14 from "@/public/assets/images/products/14.png";
 import product15 from "@/public/assets/images/products/15.png";
-import product12 from "@/public/assets/images/products/12.png";
+import {useRouter} from "next/navigation";
 
 const MIN = 0;
 const MAX = 3349310;
@@ -31,6 +31,8 @@ function Page() {
 
     // Filter by price
     const [values, setValues] = useState([0, MAX]);
+
+    const router = useRouter();
     return (
         <>
             <section id="category-section">
@@ -183,8 +185,8 @@ function Page() {
                             {/* Main content products */}
                             <div className="col md:col-span-8">
                                 <div className="grid grid-cols-1 sm:col-end-2 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -217,9 +219,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -229,11 +231,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -266,9 +268,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -278,11 +280,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -314,9 +316,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -326,11 +328,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -362,9 +364,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -374,11 +376,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -410,9 +412,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -422,11 +424,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -473,8 +475,8 @@ function Page() {
                                             </button>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -506,9 +508,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -518,11 +520,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -555,9 +557,9 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  type="button"
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -567,11 +569,11 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
-                                    <div
-                                        className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
+                                    <div onClick={() => router.push("/product/id")}
+                                         className="col rounded-xl cursor-pointer border border-gray-200 hover:border-primary bg-white p-[10px] transition">
 
                                         {/* PRODUCT IMAGE */}
                                         <div
@@ -603,9 +605,8 @@ function Page() {
                                             <h4 className="text-[16px] font-bold text-primary">
                                                 TK: 3,200
                                             </h4>
-                                            <button
-                                                type="button"
-                                                className="flex items-center gap-1 py-1 px-3 text-[14px]
+                                            <Link href='/checkout'
+                                                  className="flex items-center gap-1 py-1 px-3 text-[14px]
                                     bg-buy-button rounded text-white cursor-pointer font-semibold
                                     hover:bg-primary transition"
                                             >
@@ -615,7 +616,7 @@ function Page() {
                                                     className="w-[20px]"
                                                 />
                                                 Buy Now
-                                            </button>
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>
