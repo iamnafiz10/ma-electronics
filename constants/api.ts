@@ -8,6 +8,7 @@ export const API = {
     me: "Auth/me",
     changePassword: "Auth/changePassword",
     updateProfile: "Auth/profile",
+    Profile: "Auth/profile",
   },
  menu: {
     list: "/api/proxy/Menu/getAll",
