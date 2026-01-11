@@ -18,6 +18,15 @@ export const API = {
     menudelete: (id: number) => `/api/proxy/Menu/delete/${id}`,    
     myMenus: "/Menu/my",
   },
+  roles: {
+    list: "/api/proxy/Role/GetAll",            
+    rolecreate: "/api/proxy/Role/create",   
+    roleedit: (id: number) => `/api/proxy/Role/${id}`,
+    roleupdate: "/api/proxy/Role",           
+    roledelete: (id: string | number) => `/api/proxy/Role/${id}`,
+    assignMenu: "/api/proxy/Role/assignMenu",  
+    permissions: (roleId: string | number) => `/api/proxy/Role/${roleId}/permissions`,
+},
 
   
  
