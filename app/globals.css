@@ -79,3 +79,20 @@
     border-radius: 6px;
 }
 
+/*----------------- Editor/Table ------------------------*/
+.fr-svg {
+    font-size: 12px;
+    height: 18px !important;
+}
+
+.fr-view table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.fr-view th,
+.fr-view td {
+    border: 1px solid #e5e7eb;
+    padding: 8px;
+}
+
