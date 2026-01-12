@@ -5,9 +5,13 @@ import Link from "next/link";
 import { FiMail, FiLock } from "react-icons/fi";
 import { useLogin } from "@/app/features/auth/hooks/useLogin";
 
-export default function LoginClient() {
+type Props = {
+  mode?: "admin" | "user";
+};
+
+export default function LoginClient({ mode = "user" }: Props) {
   const { email, setEmail, password, setPassword, loading, err, submit } =
-    useLogin();
+    useLogin({ mode });
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -19,7 +23,7 @@ export default function LoginClient() {
       <div className="w-full max-w-md bg-white border border-gray-200 rounded-xl shadow-md p-6">
         
         <h2 className="text-2xl font-semibold text-center mb-6">
-          Admin Login
+          {mode === "admin" ? "Admin Login" : "Login"}
         </h2>
 
         <form onSubmit={onSubmit} className="space-y-4">
@@ -34,6 +38,7 @@ export default function LoginClient() {
               placeholder="Email"
               className="w-full pl-10 pr-3 py-2 border rounded-md text-sm
                          focus:outline-none focus:border-primary"
+              required
             />
           </div>
 
@@ -47,6 +52,7 @@ export default function LoginClient() {
               placeholder="Password"
               className="w-full pl-10 pr-3 py-2 border rounded-md text-sm
                          focus:outline-none focus:border-primary"
+              required
             />
           </div>
 
@@ -59,7 +65,7 @@ export default function LoginClient() {
 
           {/* Button */}
           <button
-            type="submit"              // 🔥 MUST
+            type="submit"
             disabled={loading}
             className="w-full bg-primary text-white py-2 rounded-md
                        hover:bg-primary/90 transition
@@ -69,14 +75,16 @@ export default function LoginClient() {
           </button>
         </form>
 
-        <div className="text-center mt-4">
-          <Link
-            href="/admin/forgot"
-            className="text-sm text-primary hover:underline"
-          >
-            Forgot password?
-          </Link>
-        </div>
+        {mode === "admin" && (
+          <div className="text-center mt-4">
+            <Link
+              href="/admin/forgot"
+              className="text-sm text-primary hover:underline"
+            >
+              Forgot password?
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   );

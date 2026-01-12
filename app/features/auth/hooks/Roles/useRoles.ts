@@ -1,51 +1,51 @@
-import { useState, useEffect, useMemo } from "react";
+"use client";
+
+import { useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
 import { rolesService } from "@/app/features/auth/Service/roles.service";
-import {
-  RoleDTO,
-  CreateRoleDTO,
-  RoleMenuAssignDTO,
-} from "@/app/features/auth/Dto/rolesDTO";
 
-// ---- TYPES ----
 export type RoleItem = { id: number; title: string };
 export type MenuItem = { id: number; title: string };
 export type MenuPermissionSelection = { [menuId: number]: number[] };
 
-// ---- HOOK ----
 export const useRoles = () => {
-  // STATE
   const [roles, setRoles] = useState<RoleItem[]>([]);
   const [menus, setMenus] = useState<MenuItem[]>([]);
-  const [selectedIds, setSelectedIds] = useState<number[]>([]);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [entriesCount, setEntriesCount] = useState(10);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // MODALS
+  // pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const entriesCount = 10;
+
+  // selection
+  const [selectedIds, setSelectedIds] = useState<number[]>([]);
+
+  // modals
   const [openCreateModal, setOpenCreateModal] = useState(false);
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [openAssignModal, setOpenAssignModal] = useState(false);
+
+  // form states
   const [newRoleName, setNewRoleName] = useState("");
   const [editRole, setEditRole] = useState<RoleItem | null>(null);
-  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteRoleId, setDeleteRoleId] = useState<number | null>(null);
-
-  const [assignMenuModalOpen, setAssignMenuModalOpen] = useState(false);
   const [currentAssignRoleId, setCurrentAssignRoleId] = useState<number | null>(null);
 
-  // MENU ASSIGN
+  // assign menu
   const [selectedMenuIds, setSelectedMenuIds] = useState<number[]>([]);
-  const [menuPermissions, setMenuPermissions] = useState<MenuPermissionSelection>({});
+  const [menuPermissions, setMenuPermissions] =
+    useState<MenuPermissionSelection>({});
 
-  // ---- LOAD DATA ----
+  /* ================= LOAD ================= */
+
   const loadRoles = async () => {
-    setIsLoading(true);
     try {
+      setIsLoading(true);
       const res = await rolesService.list();
-      setRoles(res.map((r) => ({ id: r.id, title: r.title })));
-    } catch {
-      toast.error("Failed to load roles");
+      setRoles(res);
+    } catch (e: any) {
+      toast.error(e?.message || "Failed to load roles");
     } finally {
       setIsLoading(false);
     }
@@ -53,8 +53,8 @@ export const useRoles = () => {
 
   const loadMenus = async () => {
     try {
-      const res = await fetch("/api/proxy/Menu/getAll").then((r) => r.json());
-      setMenus(res || []);
+      const res = await rolesService.getMenus();
+      setMenus(res);
     } catch {
       toast.error("Failed to load menus");
     }
@@ -65,21 +65,18 @@ export const useRoles = () => {
     loadMenus();
   }, []);
 
-  // ---- FILTER + PAGINATION ----
-  const filteredRoles = useMemo(
-    () => roles.filter((r) => r.title.toLowerCase().includes(searchTerm.toLowerCase())),
-    [roles, searchTerm]
-  );
+  /* ================= PAGINATION ================= */
 
   const paginatedRoles = useMemo(() => {
     const start = (currentPage - 1) * entriesCount;
-    return filteredRoles.slice(start, start + entriesCount);
-  }, [filteredRoles, currentPage, entriesCount]);
+    return roles.slice(start, start + entriesCount);
+  }, [roles, currentPage]);
 
-  // ---- TABLE CHECKBOX ----
+  /* ================= TABLE ================= */
+
   const handleSelectRow = (id: number) => {
-    setSelectedIds((prev) =>
-      prev.includes(id) ? prev.filter((i) => i !== id) : [...prev, id]
+    setSelectedIds((p) =>
+      p.includes(id) ? p.filter((x) => x !== id) : [...p, id]
     );
   };
 
@@ -87,58 +84,64 @@ export const useRoles = () => {
     setSelectedIds(checked ? paginatedRoles.map((r) => r.id) : []);
   };
 
-  // ---- CRUD ----
+  /* ================= CRUD ================= */
+
   const handleCreateRole = async () => {
     if (!newRoleName.trim()) return toast.error("Role name required");
 
-    const payload: CreateRoleDTO = {
-      title: newRoleName,
-    };
-
-    await rolesService.create(payload);
-
-    toast.success("Role created");
-    setOpenCreateModal(false);
-    setNewRoleName("");
-    loadRoles();
+    try {
+      await rolesService.create({ title: newRoleName });
+      toast.success("Role created successfully");
+      setOpenCreateModal(false);
+      setNewRoleName("");
+      await loadRoles(); // ✅ realtime refresh
+    } catch (e: any) {
+      toast.error(e?.message || "Create failed");
+    }
   };
 
   const handleUpdateRole = async () => {
     if (!editRole) return;
 
-    await rolesService.update(editRole);
-
-    toast.success("Role updated");
-    setOpenEditModal(false);
-    loadRoles();
+    try {
+      await rolesService.update(editRole);
+      toast.success("Role updated successfully");
+      setOpenEditModal(false);
+      setEditRole(null);
+      await loadRoles(); // ✅
+    } catch (e: any) {
+      toast.error(e?.message || "Update failed");
+    }
   };
 
   const handleDeleteRole = async () => {
     if (!deleteRoleId) return;
 
-    await rolesService.remove(deleteRoleId);
-
-    toast.success("Role deleted");
-    setDeleteModalOpen(false);
-    loadRoles();
+    try {
+      await rolesService.remove(deleteRoleId);
+      toast.success("Role deleted successfully");
+      setOpenDeleteModal(false);
+      setDeleteRoleId(null);
+      await loadRoles(); // ✅
+    } catch (e: any) {
+      toast.error(e?.message || "Delete failed");
+    }
   };
 
-  // ---- ASSIGN MENU ----
   const handleAssignMenu = async () => {
     if (!currentAssignRoleId) return;
 
-    const payload: RoleMenuAssignDTO = {
-      roleId: currentAssignRoleId,
-      menus: selectedMenuIds.map((menuId) => ({
-        menuId,
-        permissions: menuPermissions[menuId] || [],
-      })),
-    };
-
     try {
-      await rolesService.assignMenu(payload);
+      await rolesService.assignMenu({
+        roleId: currentAssignRoleId,
+        menus: selectedMenuIds.map((id) => ({
+          menuId: id,
+          permissions: menuPermissions[id] || [],
+        })),
+      });
+
       toast.success("Menu assigned successfully");
-      setAssignMenuModalOpen(false);
+      setOpenAssignModal(false);
       setSelectedMenuIds([]);
       setMenuPermissions({});
     } catch {
@@ -149,38 +152,43 @@ export const useRoles = () => {
   return {
     roles,
     menus,
+    isLoading,
     paginatedRoles,
     currentPage,
     entriesCount,
     selectedIds,
+
+    setCurrentPage,
     handleSelectRow,
     handleSelectAll,
 
+    // modals
     openCreateModal,
     setOpenCreateModal,
+    openEditModal,
+    setOpenEditModal,
+    openDeleteModal,
+    setOpenDeleteModal,
+    openAssignModal,
+    setOpenAssignModal,
+
+    // forms
     newRoleName,
     setNewRoleName,
-    handleCreateRole,
-
-    openEditModal,
     editRole,
     setEditRole,
-    setOpenEditModal,
-    handleUpdateRole,
-
-    deleteModalOpen,
-    setDeleteModalOpen,
     setDeleteRoleId,
-    handleDeleteRole,
-
-    assignMenuModalOpen,
-    setAssignMenuModalOpen,
-    currentAssignRoleId,
     setCurrentAssignRoleId,
+
     selectedMenuIds,
     setSelectedMenuIds,
     menuPermissions,
     setMenuPermissions,
+
+    // actions
+    handleCreateRole,
+    handleUpdateRole,
+    handleDeleteRole,
     handleAssignMenu,
   };
 };

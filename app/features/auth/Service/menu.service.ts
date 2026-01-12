@@ -1,46 +1,34 @@
 import { API } from "@/constants/api";
-import { apiFetch, proxyGet } from "@/services/apiClient";
-import type { MenuDTO } from "@/app/features/auth/Dto/MenuDTO"; 
-import { MenuNode } from "../Dto/MenuNode";
+import { apiFetch } from "@/services/apiClient";
+import type { MenuDTO } from "@/app/features/auth/Dto/MenuDTO";
+import type { MenuNode } from "../Dto/MenuNode";
 
 export const menuService = {
-//   list: () => apiFetch<any>(API.menu.list, { method: "GET" }),
+  list: () =>
+    apiFetch<MenuNode[]>(API.menu.list, { method: "GET" }),
 
-list: async () => {
-  const url = API.menu.list;
-  console.log("[menuService.list] GET:", url);
-  debugger; 
-  const res = await apiFetch<any>(url, { method: "GET" });
-  console.log("[menuService.list] Response:", res);
-  return res;
-},
+  my: () =>
+    apiFetch<MenuNode[]>(API.menu.myMenus, { method: "GET" }),
 
   create: (payload: MenuDTO) =>
-    apiFetch<any>(API.menu.menucreate, {
+    apiFetch(API.menu.menucreate, {
       method: "POST",
       body: JSON.stringify(payload),
     }),
 
-  getById: (id: number) =>
-    apiFetch<any>(API.menu.menuedit(id), {
-      method: "GET",
-    }),
-
   update: (payload: MenuDTO) =>
-    apiFetch<any>(API.menu.menuupdate, {
+    apiFetch(API.menu.menuupdate, {
       method: "PUT",
       body: JSON.stringify(payload),
     }),
 
   remove: (id: number) =>
-    apiFetch<any>(API.menu.menudelete(id), {
+    apiFetch(API.menu.menudelete(id), {
       method: "DELETE",
     }),
-       
-  my: async () => {
-  const res = await proxyGet<any>(API.menu.myMenus);
-  console.log("[menuService.my] raw response:", res);
-  return res;
-},
 
+  getById: (id: number) =>
+    apiFetch<MenuDTO>(API.menu.menuedit(id), {
+      method: "GET",
+    }),
 };
