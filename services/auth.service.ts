@@ -7,21 +7,30 @@ import type {
   UpdateProfileRequest,
   ChangePasswordRequest,
   MessageResponse,
-} from "..//Dto/types";
+} from "../app/features/auth/Dto/types";
 
 export const authService = {
+  // -------- LOGIN --------
   login: (payload: LoginRequest) =>
     apiFetch<LoginResponse>(API.auth.login, {
       method: "POST",
       body: JSON.stringify(payload),
     }),
 
+  // -------- LOGOUT --------
   logout: () =>
     apiFetch<{ ok: true }>(API.auth.logout, {
       method: "POST",
     }),
 
+  // -------- GET ME --------
   me: () => proxyGet<MeResponse>(API.backend.me),
-  updateProfile: (p) => proxyPut<MessageResponse>(API.backend.updateProfile, p),
-  changePassword: (p) => proxyPost<MessageResponse>(API.backend.changePassword, p),
+
+  // -------- UPDATE PROFILE --------
+  updateProfile: (payload: UpdateProfileRequest) =>
+    proxyPut<MessageResponse>(API.backend.updateProfile, payload),
+
+  // -------- CHANGE PASSWORD --------
+  changePassword: (payload: ChangePasswordRequest) =>
+    proxyPost<MessageResponse>(API.backend.changePassword, payload),
 };

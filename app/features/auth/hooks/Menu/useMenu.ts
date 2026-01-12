@@ -1,3 +1,7 @@
+import { useEffect, useMemo, useState } from "react";
+import { type MenuDTO } from "@/app/features/auth/Dto/MenuDTO";
+import { menuService } from "@/app/features/auth/Service/menu.service";
+
 type MenuItem = {
   id: number;
   title: string;
@@ -9,22 +13,21 @@ type MenuItem = {
   withoutView?: boolean;
 };
 
-
-import { menuService, type MenuDTO } from "@/services/menu.service";
-
 function toInt(v: any): number | null {
   if (v === null || v === undefined || v === "") return null;
   const n = Number(v);
   return Number.isFinite(n) ? n : null;
 }
 
-async function loadMenus(setMenus: any, setIsLoading: any) {
+async function loadMenus(
+  setMenus: React.Dispatch<React.SetStateAction<MenuItem[]>>,
+  setIsLoading: React.Dispatch<React.SetStateAction<boolean>>
+) {
   setIsLoading(true);
   try {
     const res = await menuService.list();
-
-    // backend কখনও wrapper দেয়, কখনও raw list দেয় — safe normalize
     const raw = Array.isArray(res) ? res : (res?.responseObj ?? res?.data ?? []);
+
     const normalized: MenuItem[] = raw.map((m: any) => ({
       id: Number(m.id ?? m.Id),
       title: String(m.title ?? m.Title ?? ""),
@@ -42,19 +45,33 @@ async function loadMenus(setMenus: any, setIsLoading: any) {
   }
 }
 
+export function useMenu() {
+  const [menus, setMenus] = useState<MenuItem[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
 
-const parentOptions = useMemo(() => {
-  // root ছাড়া অন্য সব menu কে parent হিসেবে allow
-  return menus.map(m => ({ id: m.id, title: m.title }));
-}, [menus]);
+  useEffect(() => {
+    loadMenus(setMenus, setIsLoading);
+  }, []);
 
-const menusById = useMemo(() => {
-  const map = new Map<number, MenuItem>();
-  menus.forEach(m => map.set(m.id, m));
-  return map;
-}, [menus]);
+  const parentOptions = useMemo(() => {
+    return menus.map(m => ({ id: m.id, title: m.title }));
+  }, [menus]);
 
-const parentTitle = (pid: number | null) => {
-  if (!pid) return "—";
-  return menusById.get(pid)?.title ?? "—";
-};
+  const menusById = useMemo(() => {
+    const map = new Map<number, MenuItem>();
+    menus.forEach(m => map.set(m.id, m));
+    return map;
+  }, [menus]);
+
+  const parentTitle = (pid: number | null) => {
+    if (!pid) return "—";
+    return menusById.get(pid)?.title ?? "—";
+  };
+
+  return {
+    menus,
+    isLoading,
+    parentOptions,
+    parentTitle,
+  };
+}

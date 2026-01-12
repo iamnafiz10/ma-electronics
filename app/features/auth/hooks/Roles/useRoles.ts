@@ -1,13 +1,18 @@
 import { useState, useEffect, useMemo } from "react";
 import toast from "react-hot-toast";
 import { rolesService } from "@/app/features/auth/Service/roles.service";
+import {
+  RoleDTO,
+  CreateRoleDTO,
+  RoleMenuAssignDTO,
+} from "@/app/features/auth/Dto/rolesDTO";
 
-// --- TYPES ---
+// ---- TYPES ----
 export type RoleItem = { id: number; title: string };
 export type MenuItem = { id: number; title: string };
 export type MenuPermissionSelection = { [menuId: number]: number[] };
 
-// --- HOOK ---
+// ---- HOOK ----
 export const useRoles = () => {
   // STATE
   const [roles, setRoles] = useState<RoleItem[]>([]);
@@ -20,8 +25,8 @@ export const useRoles = () => {
 
   // MODALS
   const [openCreateModal, setOpenCreateModal] = useState(false);
-  const [newRoleName, setNewRoleName] = useState("");
   const [openEditModal, setOpenEditModal] = useState(false);
+  const [newRoleName, setNewRoleName] = useState("");
   const [editRole, setEditRole] = useState<RoleItem | null>(null);
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
   const [deleteRoleId, setDeleteRoleId] = useState<number | null>(null);
@@ -38,7 +43,7 @@ export const useRoles = () => {
     setIsLoading(true);
     try {
       const res = await rolesService.list();
-      setRoles((res || []).map((r: any) => ({ id: Number(r.id), title: String(r.title) })));
+      setRoles(res.map((r) => ({ id: r.id, title: r.title })));
     } catch {
       toast.error("Failed to load roles");
     } finally {
@@ -66,8 +71,6 @@ export const useRoles = () => {
     [roles, searchTerm]
   );
 
-  const totalPages = Math.ceil(filteredRoles.length / entriesCount);
-
   const paginatedRoles = useMemo(() => {
     const start = (currentPage - 1) * entriesCount;
     return filteredRoles.slice(start, start + entriesCount);
@@ -86,8 +89,14 @@ export const useRoles = () => {
 
   // ---- CRUD ----
   const handleCreateRole = async () => {
-    if (!newRoleName) return toast.error("Role name required");
-    await rolesService.create({ title: newRoleName });
+    if (!newRoleName.trim()) return toast.error("Role name required");
+
+    const payload: CreateRoleDTO = {
+      title: newRoleName,
+    };
+
+    await rolesService.create(payload);
+
     toast.success("Role created");
     setOpenCreateModal(false);
     setNewRoleName("");
@@ -96,7 +105,9 @@ export const useRoles = () => {
 
   const handleUpdateRole = async () => {
     if (!editRole) return;
+
     await rolesService.update(editRole);
+
     toast.success("Role updated");
     setOpenEditModal(false);
     loadRoles();
@@ -104,7 +115,9 @@ export const useRoles = () => {
 
   const handleDeleteRole = async () => {
     if (!deleteRoleId) return;
+
     await rolesService.remove(deleteRoleId);
+
     toast.success("Role deleted");
     setDeleteModalOpen(false);
     loadRoles();
@@ -114,15 +127,13 @@ export const useRoles = () => {
   const handleAssignMenu = async () => {
     if (!currentAssignRoleId) return;
 
-    const payload = {
-      roleId: currentAssignRoleId.toString(),
+    const payload: RoleMenuAssignDTO = {
+      roleId: currentAssignRoleId,
       menus: selectedMenuIds.map((menuId) => ({
         menuId,
         permissions: menuPermissions[menuId] || [],
       })),
     };
-
-    console.log("ASSIGN PAYLOAD:", payload);
 
     try {
       await rolesService.assignMenu(payload);

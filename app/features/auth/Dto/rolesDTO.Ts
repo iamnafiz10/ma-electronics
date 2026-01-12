@@ -1,14 +1,20 @@
-export type MenuPermissionDTO = {
-  menuId: number;
-  permissions: number[]; 
-};
-export type rolesDTO = {
-  id: string;
+// ---- ROLE DTOS ----
+export type RoleDTO = {
+  id: number;
   title: string;
 };
 
+export type CreateRoleDTO = {
+  title: string;
+};
+
+// ---- MENU ASSIGN DTOS ----
+export type MenuPermissionDTO = {
+  menuId: number;
+  permissions: number[];
+};
 
 export type RoleMenuAssignDTO = {
-  roleId: string;
+  roleId: number;
   menus: MenuPermissionDTO[];
 };

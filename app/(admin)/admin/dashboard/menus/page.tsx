@@ -5,7 +5,8 @@ import { FaTrashAlt, FaCheck, FaPlus } from "react-icons/fa";
 import { RxCross1 } from "react-icons/rx";
 import toast from "react-hot-toast";
 import { FaPencil } from "react-icons/fa6";
-import { menuService, type MenuDTO } from "@/app/features/auth/Service/menu.service";
+import { menuService } from "@/app/features/auth/Service/menu.service";
+import { type MenuDTO } from "@/app/features/auth/Dto/MenuDTO";
 
 // ---------- TYPES ----------
 type MenuItem = {
