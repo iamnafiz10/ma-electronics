@@ -1,6 +1,8 @@
 import type {Metadata} from "next";
 import {Geist, Geist_Mono} from "next/font/google";
 import "./globals.css";
+import "froala-editor/css/froala_editor.pkgd.min.css";
+import "froala-editor/css/froala_style.min.css";
 import {Toaster} from 'react-hot-toast';
 
 const geistSans = Geist({

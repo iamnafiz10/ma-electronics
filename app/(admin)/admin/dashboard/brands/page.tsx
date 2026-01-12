@@ -341,7 +341,7 @@ export default function BrandsPage() {
                                             type="file"
                                             accept="image/*"
                                             onChange={handleImageChange}
-                                            className="w-full text-[14px] border border-gray-300 rounded p-3 py-2
+                                            className="w-full text-[12px] border border-gray-300 rounded p-3 py-2
                 focus:outline-none focus:border-primary"
                                         />
                                     </div>
@@ -441,7 +441,7 @@ export default function BrandsPage() {
                                             type="file"
                                             accept="image/*"
                                             onChange={handleImageChange}
-                                            className="w-full text-[14px] border border-gray-300 rounded p-3 py-2
+                                            className="w-full text-[12px] border border-gray-300 rounded p-3 py-2
                 focus:outline-none focus:border-primary"
                                         />
                                     </div>
