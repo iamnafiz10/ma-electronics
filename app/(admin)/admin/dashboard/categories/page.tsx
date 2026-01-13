@@ -584,7 +584,6 @@ export default function CategoriesPage() {
                                        peer-checked:after:translate-x-5">
                                             </div>
                                         </label>
-
                                     </div>
                                 </div>
                             </form>

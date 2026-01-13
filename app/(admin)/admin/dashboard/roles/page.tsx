@@ -215,7 +215,6 @@ export default function RolePage() {
   return (
     <section className="container_wrap mt-10">
       {/* --- UI unchanged --- */}
-      {/* (তোমার table, modal, assign UI সব ঠিক আছে — logic already fixed) */}
     </section>
   );
 }
