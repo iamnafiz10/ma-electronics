@@ -20,6 +20,7 @@
     "next": "16.1.1",
     "postcss": "^8.5.6",
     "react": "19.2.3",
+    "react-datepicker": "^9.1.0",
     "react-dom": "19.2.3",
     "react-froala-wysiwyg": "^4.7.1",
     "react-hot-toast": "^2.6.0",

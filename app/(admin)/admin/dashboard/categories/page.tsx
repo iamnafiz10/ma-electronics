@@ -5,7 +5,7 @@ import {FaTrashAlt, FaCheck, FaPlus} from 'react-icons/fa';
 import {FaPencil} from "react-icons/fa6";
 import toast from "react-hot-toast";
 import Image from 'next/image';
-import {RxCross1} from "react-icons/rx";
+import {RxCross1, RxCross2} from "react-icons/rx";
 import {IoImageOutline} from "react-icons/io5";
 
 // --- TYPES ---
@@ -153,6 +153,29 @@ export default function CategoriesPage() {
             fileRef.current.value = "";
         }
     };
+    //-------------- Add meta keywords ------------------//
+    const [meta_keywords, setMetaKeywords] = useState<string[]>([]);
+    const [keywordInput, setKeywordInput] = useState("");
+    // Add keyword on Enter
+    const handleKeyDownTwo = (e: React.KeyboardEvent<HTMLInputElement>) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+
+            const keyword = keywordInput.trim();
+
+            if (!keyword) return;
+            if (meta_keywords.includes(keyword)) return;
+
+            setMetaKeywords((prev) => [...prev, keyword]);
+            setKeywordInput("");
+        }
+    };
+    const removeKeyword = (index: number) => {
+        setMetaKeywords((prev) =>
+            prev.filter((_, i) => i !== index)
+        );
+    };
+
     // Category Checkbox
     const [selected, setSelected] = useState<"sub" | "child" | null>(null);
     return (
@@ -498,11 +521,39 @@ export default function CategoriesPage() {
                                         <label className="block mb-1 text-[14px] font-medium">
                                             Meta Keywords<span className="text-red-400">*</span>
                                         </label>
+                                        {/* Input */}
                                         <input
                                             type="text"
-                                            placeholder="Keywords"
-                                            className="w-full text-[14px] border border-gray-300 rounded p-3 py-2 focus:outline-none focus:border-primary"
+                                            value={keywordInput}
+                                            onChange={(e) => setKeywordInput(e.target.value)}
+                                            onKeyDown={handleKeyDownTwo}
+                                            placeholder="Type keyword and press Enter"
+                                            className="w-full text-[14px] border border-gray-300 rounded p-3 py-2
+                                                        focus:outline-none focus:border-primary"
                                         />
+
+                                        {/* Keywords */}
+                                        {meta_keywords.length > 0 && (
+                                            <div className="flex flex-wrap gap-2 mt-3">
+                                                {meta_keywords.map((keyword, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="bg-gray-100 border border-gray-200
+                                                                    px-3 py-1 rounded text-[13px] flex items-center gap-2"
+                                                    >
+                                                        <span>{keyword}</span>
+
+                                                        <button
+                                                            type="button"
+                                                            onClick={() => removeKeyword(index)}
+                                                            className="text-gray-500 hover:text-red-500 cursor-pointer"
+                                                        >
+                                                            <RxCross2 size={14}/>
+                                                        </button>
+                                                    </div>
+                                                ))}
+                                            </div>
+                                        )}
                                     </div>
                                 </div>
 

@@ -61,7 +61,7 @@ export default function LoginClient() {
           <button
             type="submit"              // 🔥 MUST
             disabled={loading}
-            className="w-full bg-primary text-white py-2 rounded-md
+            className="w-full bg-primary text-white cursor-pointer py-2 rounded-md
                        hover:bg-primary/90 transition
                        disabled:opacity-60"
           >
