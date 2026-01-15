@@ -228,19 +228,19 @@ export default function Page() {
   }, [openEditMenuModal]);
 
   const openEdit = (menu: MenuItem) => {
-    setEditId(menu.id);
-    setEditForm({
-      id: String(menu.id),
-      title: menu.title,
-      url: menu.url,
-      parentId: menu.parentId ? String(menu.parentId) : null,
-      icon: menu.icon ?? null,
-      sequence: menu.sequence ?? null,
-      description: menu.description,
-      withoutView: menu.withoutView ?? false,
-    });
-    setOpenEditMenuModal(true);
-  };
+  setEditId(menu.id);
+  setEditForm({
+    id: menu.id,                 // ✅ number
+    title: menu.title,
+    url: menu.url,
+    parentId: menu.parentId,     // ✅ number | null
+    icon: menu.icon ?? null,
+    sequence: menu.sequence ?? null,
+    description: menu.description,
+    withoutView: menu.withoutView ?? false,
+  });
+  setOpenEditMenuModal(true);
+};
 
   const submitUpdate = async () => {
     if (!editForm || !editId) return;
@@ -511,7 +511,7 @@ export default function Page() {
                     onChange={(e) =>
                       setCreateForm((s) => ({
                         ...s,
-                        parentId: e.target.value ? String(e.target.value) : null,
+                        parentId: e.target.value ? Number(e.target.value) : null,
                       }))
                     }
                     className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-primary"
@@ -668,7 +668,7 @@ export default function Page() {
                         s
                           ? {
                               ...s,
-                              parentId: e.target.value ? String(e.target.value) : null,
+                              parentId: e.target.value ? Number( e.target.value) : null,
                             }
                           : s
                       )

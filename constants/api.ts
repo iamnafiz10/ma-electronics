@@ -28,7 +28,20 @@ export const API = {
     permissions: (roleId: string | number) => `/api/proxy/Role/${roleId}/permissions`,
 },
 
-  
+ users: {
+    list: "/api/proxy/users/GetAll",
+    create: "/api/proxy/users/create",
+    update: "/api/proxy/users",
+    status: "/api/proxy/users/status",
+    delete: (id: string) => `/api/proxy/users/${id}`,
+  },  
+  brands: {
+    list: "/api/proxy/brands/getAll",
+    create: "/api/proxy/brands/create",
+    update: (id: string) => `/api/proxy/brands/${id}`,
+    delete: (id: string) => `/api/proxy/brands/${id}`,
+    status: (id: string) => `/api/proxy/brands/${id}/status`,
+  },
  
   proxy: (path: string) => `/api/proxy/${path.replace(/^\/+/, "")}`,
 } as const;

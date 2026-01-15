@@ -24,28 +24,60 @@ async function readJsonSafe(res: Response) {
   try { return JSON.parse(text); } catch { return text; }
 }
 
+// export async function apiFetch<T>(
+//   url: string,
+//   init?: RequestInit
+// ): Promise<T> {
+//   const res = await fetch(url, {
+//     ...init,
+//     headers: {
+//       "Content-Type": "application/json",
+//       ...(init?.headers || {}),
+//     }, 
+//     credentials: "same-origin",
+//   });
+
+//   if (!res.ok) {
+//     const data = await readJsonSafe(res);
+//     const msg = (data && (data.message || data.title)) || `Request failed (${res.status})`;
+//     throw new ApiError(res.status, msg, data);
+//   }
+
+//   const data = await readJsonSafe(res);
+//   return data as T;
+// }
+
+
 export async function apiFetch<T>(
   url: string,
   init?: RequestInit
 ): Promise<T> {
+
+  const headers = new Headers(init?.headers || {});
+
+  // 🚨 CRITICAL FIX
+  if (!(init?.body instanceof FormData)) {
+    headers.set("Content-Type", "application/json");
+  }
+
   const res = await fetch(url, {
     ...init,
-    headers: {
-      "Content-Type": "application/json",
-      ...(init?.headers || {}),
-    }, 
+    headers,
     credentials: "same-origin",
   });
 
   if (!res.ok) {
     const data = await readJsonSafe(res);
-    const msg = (data && (data.message || data.title)) || `Request failed (${res.status})`;
+    const msg =
+      (data && (data.message || data.title)) ||
+      `Request failed (${res.status})`;
     throw new ApiError(res.status, msg, data);
   }
 
   const data = await readJsonSafe(res);
   return data as T;
 }
+
 
 export async function proxyGet<T>(path: string) {
   return apiFetch<T>(API.proxy(path), { method: "GET" });

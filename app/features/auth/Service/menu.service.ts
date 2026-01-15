@@ -26,11 +26,11 @@ list: async () => {
       method: "GET",
     }),
 
-  update: (payload: MenuDTO) =>
-    apiFetch<any>(API.menu.menuupdate, {
-      method: "PUT",
-      body: JSON.stringify(payload),
-    }),
+update: (payload: MenuDTO) =>
+  apiFetch<any>(API.menu.menuupdate, {
+    method: "POST",  
+    body: JSON.stringify(payload),
+  }),
 
   remove: (id: number) =>
     apiFetch<any>(API.menu.menudelete(id), {

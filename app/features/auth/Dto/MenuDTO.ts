@@ -1,10 +1,11 @@
+// features/auth/Dto/MenuDTO.ts
 export type MenuDTO = {
-   id?: string;               
-   title: string;
-   parentId?: string | null;  
-   description: string;
-   url: string;
-   icon?: string | null;
-   sequence?: number | null;
-   withoutView?: boolean;
+  id?: number;
+  title: string;
+  url: string;
+  parentId: number | null;
+  icon?: string | null;
+  sequence?: number | null;
+  description: string;
+  withoutView?: boolean;
 };
