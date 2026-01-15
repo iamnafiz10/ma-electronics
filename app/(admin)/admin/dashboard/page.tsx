@@ -2,6 +2,7 @@ import React from 'react';
 import {FaCheckCircle, FaMoneyBillWave, FaRegChartBar, FaShoppingCart} from "react-icons/fa";
 import MonthlySalesReport from "@/app/(admin)/admin/dashboard/helper/MonthlySalesReport";
 import MonthlyEarningsReport from "@/app/(admin)/admin/dashboard/helper/MonthlyEarningsReport";
+import Link from "next/link";
 
 function Page() {
     return (
@@ -295,92 +296,38 @@ function Page() {
                                     <tr className="bg-gray-50 border-b border-gray-200">
                                         <td className="px-6 py-4 border-r border-gray-200">Nafiz</td>
                                         <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">
-                                            ACW20254
+                                            <Link href='/admin/dashboard/order/invoice/1'>ACW20254</Link>
                                         </td>
                                         <td className="px-6 py-4 border-r border-gray-200">Cash On Delivery</td>
                                         <td className="px-6 py-4">৳10.00</td>
                                     </tr>
                                     <tr className="bg-white border-b border-gray-200">
                                         <td className="px-6 py-4 border-r border-gray-200">Nafiz</td>
-                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">ACW20253</td>
+                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">
+                                            <Link href='/admin/dashboard/order/invoice/1'>ACW20254</Link>
+                                        </td>
                                         <td className="px-6 py-4 border-r border-gray-200">Cash On Delivery</td>
                                         <td className="px-6 py-4">৳20.00</td>
                                     </tr>
                                     <tr className="bg-gray-50 border-b border-gray-200">
                                         <td className="px-6 py-4 border-r border-gray-200">Nafiz</td>
-                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">ACW20252</td>
+                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">
+                                            <Link href='/admin/dashboard/order/invoice/1'>ACW20254</Link>
+                                        </td>
                                         <td className="px-6 py-4 border-r border-gray-200">Cash On Delivery</td>
                                         <td className="px-6 py-4">৳10.00</td>
                                     </tr>
                                     <tr className="bg-white border-b border-gray-200">
                                         <td className="px-6 py-4 border-r border-gray-200">Nafiz</td>
-                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">F2SHuWfsmv</td>
+                                        <td className="px-6 py-4 border-r border-gray-200 text-primary hover:underline cursor-pointer">
+                                            <Link href='/admin/dashboard/order/invoice/1'>ACW20254</Link>
+                                        </td>
                                         <td className="px-6 py-4 border-r border-gray-200">SSLCommerz</td>
                                         <td className="px-6 py-4">৳10.00</td>
                                     </tr>
                                     </tbody>
                                 </table>
                             </div>
-                            {/*Pagination*/}
-                            {/*<div className="flex items-center justify-center gap-2 mt-4">*/}
-                            {/*    /!* Previous *!/*/}
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer flex items-center justify-center*/}
-                            {/*               border border-gray-200 rounded-md*/}
-                            {/*               text-gray-600 hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        <FiChevronLeft size={18}/>*/}
-                            {/*    </button>*/}
-
-                            {/*    /!* Pages *!/*/}
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer rounded-md*/}
-                            {/*               bg-primary text-white*/}
-                            {/*               border border-primary"*/}
-                            {/*    >*/}
-                            {/*        1*/}
-                            {/*    </button>*/}
-
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer rounded-md*/}
-                            {/*           border border-gray-200*/}
-                            {/*           hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        2*/}
-                            {/*    </button>*/}
-
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer rounded-md*/}
-                            {/*           border border-gray-200*/}
-                            {/*           hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        3*/}
-                            {/*    </button>*/}
-
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer rounded-md*/}
-                            {/*                   border border-gray-200*/}
-                            {/*                   hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        4*/}
-                            {/*    </button>*/}
-
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer rounded-md*/}
-                            {/*           border border-gray-200*/}
-                            {/*           hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        5*/}
-                            {/*    </button>*/}
-                            {/*    /!* Next *!/*/}
-                            {/*    <button*/}
-                            {/*        className="w-9 h-9 text-[14px] cursor-pointer flex items-center justify-center*/}
-                            {/*               border border-gray-200 rounded-md*/}
-                            {/*               text-gray-600 hover:bg-gray-100 transition"*/}
-                            {/*    >*/}
-                            {/*        <FiChevronRight size={18}/>*/}
-                            {/*    </button>*/}
-                            {/*</div>*/}
                         </div>
                     </div>
                 </div>

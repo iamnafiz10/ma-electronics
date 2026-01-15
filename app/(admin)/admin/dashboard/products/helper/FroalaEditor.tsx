@@ -32,7 +32,7 @@ export default function FroalaEditor({ value, onChange }: Props) {
       model={value}
       onModelChange={onChange}
       config={{
-        placeholderText: "Write product description...",
+        placeholderText: "Write description...",
         heightMin: 100,
         toolbarButtons: [
           "bold",
