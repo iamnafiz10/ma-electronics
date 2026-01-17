@@ -42,6 +42,12 @@ export const API = {
     delete: (id: string) => `/api/proxy/brands/${id}`,
     status: (id: string) => `/api/proxy/brands/${id}/status`,
   },
- 
+  categories: {
+    list: "/api/proxy/categories/getAll",
+    create: "/api/proxy/categories/create",
+    update: (id: string) => `/api/proxy/categories/${id}`,
+    delete: (id: string) => `/api/proxy/categories/${id}`,
+    toggleStatus: (id: string) => `/api/proxy/categories/${id}/toggle-status`,
+  },
   proxy: (path: string) => `/api/proxy/${path.replace(/^\/+/, "")}`,
 } as const;

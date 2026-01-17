@@ -7,70 +7,27 @@ import toast from "react-hot-toast";
 import Image from 'next/image';
 import {RxCross1, RxCross2} from "react-icons/rx";
 import {IoImageOutline} from "react-icons/io5";
-
-// --- TYPES ---
-type CategoryItem = {
-    id: number;
-    title: string;
-    icon: string;
-    status: 'Active' | 'Inactive';
-    highlight: boolean; // Changed from parent_id to highlight
-};
-
+import { CategoryDTO, CreateCategoryDTO,UpdateCategoryDTO  } from "@/app/features/auth/Dto/Category.dto";
+import { useCategories } from "@/app/features/auth/hooks/useCategory";
 export default function CategoriesPage() {
-    const [categories, setCategories] = useState<CategoryItem[]>([]);
-    const [isLoading, setIsLoading] = useState(true);
-    const [selectedIds, setSelectedIds] = useState<number[]>([]);
+
+    const { categories, loading, create, update, remove, toggleStatus } = useCategories();
+    const [selectedIds, setSelectedIds] = useState<string[]>([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [entriesCount, setEntriesCount] = useState(10);
     const [currentPage, setCurrentPage] = useState(1);
+    // const [categories, setCategories] = useState<CategoryDTO[]>([]);
 
-    // ---------- MOCK DATA ----------
-    useEffect(() => {
-        setIsLoading(true);
-        const data: CategoryItem[] = [
-            {id: 1, title: "Electronics", icon: "/icons/electronics.svg", status: "Active", highlight: true},
-            {id: 2, title: "Clothing", icon: "/icons/clothing.svg", status: "Active", highlight: false},
-            {id: 3, title: "Home & Garden", icon: "/icons/home.svg", status: "Active", highlight: true},
-            {id: 4, title: "Laptops", icon: "/icons/laptop.svg", status: "Active", highlight: true},
-            {id: 5, title: "Smartphones", icon: "/icons/phone.svg", status: "Active", highlight: false},
-            {id: 6, title: "Men's Clothing", icon: "/icons/shirt.svg", status: "Active", highlight: true},
-            {id: 7, title: "Women's Clothing", icon: "/icons/dress.svg", status: "Active", highlight: false},
-            {id: 8, title: "Kitchen", icon: "/icons/kitchen.svg", status: "Active", highlight: true},
-            {id: 9, title: "Furniture", icon: "/icons/furniture.svg", status: "Inactive", highlight: false},
-            {id: 10, title: "Gaming Laptops", icon: "/icons/gaming.svg", status: "Active", highlight: true},
-            {id: 11, title: "Business Laptops", icon: "/icons/business.svg", status: "Active", highlight: false},
-            {id: 12, title: "Android Phones", icon: "/icons/android.svg", status: "Active", highlight: true},
-            {id: 13, title: "iPhones", icon: "/icons/apple.svg", status: "Active", highlight: false},
-            {id: 14, title: "T-Shirts", icon: "/icons/tshirt.svg", status: "Active", highlight: true},
-            {id: 15, title: "Jeans", icon: "/icons/jeans.svg", status: "Active", highlight: false},
-        ];
-        setTimeout(() => {
-            setCategories(data);
-            setIsLoading(false);
-        }, 500);
-    }, []);
-
-    // ---------- STATUS TOGGLE ----------
-    const toggleStatus = (id: number) => {
-        setCategories(prevCategories =>
-            prevCategories.map(category =>
-                category.id === id
-                    ? {...category, status: category.status === 'Active' ? 'Inactive' : 'Active'}
-                    : category
-            )
-        );
-        toast.success("Status Updated");
-    };
-
+            
+            
     // ---------- FILTER + PAGINATION ----------
-    const filteredCategories = useMemo(() => {
-        return categories.filter(category =>
-            category.title.toLowerCase().includes(searchTerm.toLowerCase())
-        );
-    }, [categories, searchTerm]);
+  const filteredCategories = useMemo(() => {
+  return (categories ?? []).filter(category =>
+    category.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+}, [categories, searchTerm]);
 
-    const totalPages = Math.ceil(filteredCategories.length / entriesCount);
+    const totalPages = Math.max(1, Math.ceil(filteredCategories.length / entriesCount));
 
     const paginatedData = useMemo(() => {
         const start = (currentPage - 1) * entriesCount;
@@ -86,11 +43,13 @@ export default function CategoriesPage() {
         }
     };
 
-    const handleSelectRow = (id: number) => {
-        setSelectedIds(prev =>
-            prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-        );
-    };
+   const handleSelectRow = (id: string) => {
+    setSelectedIds(prev =>
+        prev.includes(id)
+            ? prev.filter(item => item !== id)
+            : [...prev, id]
+    );
+};
 
     const CustomCheckbox = ({checked, onChange}: { checked: boolean, onChange: (v: boolean) => void }) => (
         <label className="flex items-center justify-center cursor-pointer select-none">
@@ -110,18 +69,17 @@ export default function CategoriesPage() {
 
     // ---------- DELETE MODAL ----------
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-    const [selectedId, setSelectedId] = useState<number | null>(null);
+    const [selectedId, setSelectedId] = useState<string | null>(null);
 
     useEffect(() => {
         document.body.style.overflow = deleteModalOpen ? 'hidden' : '';
     }, [deleteModalOpen]);
 
-    const handleDelete = () => {
-        if (!selectedId) return;
-        setCategories(prev => prev.filter(r => r.id !== selectedId));
-        toast.success('Category deleted successfully!');
-        setDeleteModalOpen(false);
-    };
+   const handleDelete = async () => {
+    if (!selectedId) return;
+    await remove(selectedId);
+    setDeleteModalOpen(false);
+};
 
     // ---------- CREATE Category ----------
     const [openCreateCategoryModal, setOpenCreateCategoryModal] = useState(false);
@@ -234,11 +192,16 @@ export default function CategoriesPage() {
                             <thead className="bg-gray-50">
                             <tr>
                                 <th className="border border-gray-200 p-4 w-12 text-center">
-                                    <CustomCheckbox
-                                        checked={paginatedData.length > 0 && selectedIds.length === paginatedData.length}
-                                        onChange={handleSelectAll}
-                                    />
-                                </th>
+  <CustomCheckbox
+    checked={
+      paginatedData.length > 0 &&
+      paginatedData.every(c => selectedIds.includes(c.id))
+    }
+    onChange={handleSelectAll}
+  />
+</th>
+
+
                                 <th className="border border-gray-200 p-4 text-center w-16">SI</th>
                                 <th className="border border-gray-200 p-4 text-center w-16">Icon</th>
                                 <th className="border border-gray-200 p-4 text-left px-6">Category Name</th>
@@ -246,77 +209,102 @@ export default function CategoriesPage() {
                                 <th className="border border-gray-200 p-4 text-center w-32">Status</th>
                                 <th className="border border-gray-200 p-4 text-center w-32">Actions</th>
                             </tr>
-                            </thead>
-                            <tbody>
-                            {!isLoading ? paginatedData.map((category, idx) => (
-                                <tr key={category.id} className="hover:bg-gray-50 transition-colors">
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        <CustomCheckbox
-                                            checked={selectedIds.includes(category.id)}
-                                            onChange={() => handleSelectRow(category.id)}
-                                        />
-                                    </td>
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        {(currentPage - 1) * entriesCount + idx + 1}
-                                    </td>
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        <div className="flex justify-center">
-                                            <Image
-                                                src={category.icon}
-                                                alt={category.title}
-                                                width={32}
-                                                height={32}
-                                                className="rounded"
-                                            />
-                                        </div>
-                                    </td>
-                                    <td className="border border-gray-200 p-4 px-6 font-medium text-gray-700">
-                                        {category.title}
-                                    </td>
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        <span
-                                            className={`px-3 py-1 rounded text-white text-[12px] inline-block min-w-[70px] transition select-none ${
-                                                category.highlight
-                                                    ? "bg-gradient-to-r from-purple-500 to-pink-500 shadow-md"
-                                                    : "bg-gradient-to-r from-gray-400 to-gray-600"
-                                            }`}>
-                                            {category.highlight ? "Yes" : "No"}
-                                        </span>
-                                    </td>
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        <span
-                                            onClick={() => toggleStatus(category.id)}
-                                            className={`px-3 py-1 rounded text-white text-[12px] cursor-pointer inline-block min-w-[70px] transition select-none ${
-                                                category.status === "Active" ? "bg-green-500 hover:bg-green-600" : "bg-gray-400 hover:bg-gray-500"
-                                            }`}
-                                        >
-                                            {category.status}
-                                        </span>
-                                    </td>
-                                    <td className="border border-gray-200 p-4 text-center">
-                                        <div className="flex justify-center gap-2">
-                                            <button onClick={() => setOpenEditCategoryModal(true)}
-                                                    className="bg-blue-500 p-2 rounded text-white cursor-pointer hover:bg-blue-600 transition">
-                                                <FaPencil size={12}/>
-                                            </button>
-                                            <button
-                                                onClick={() => {
-                                                    setSelectedId(category.id);
-                                                    setDeleteModalOpen(true);
-                                                }}
-                                                className="bg-red-500 p-2 rounded text-white cursor-pointer hover:bg-red-600 transition">
-                                                <FaTrashAlt size={12}/>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            )) : (
-                                <tr>
-                                    <td colSpan={7} className="p-10 text-center text-gray-400">Loading categories...
-                                    </td>
-                                </tr>
-                            )}
-                            </tbody>
+                            </thead>                          
+
+<tbody>
+  {!loading ? (
+    paginatedData.map((category, idx) => (
+      <tr key={category.id} className="hover:bg-gray-50 transition-colors">
+        <td className="border border-gray-200 p-4 text-center">
+  <CustomCheckbox
+    checked={selectedIds.includes(category.id)}
+    onChange={() => handleSelectRow(category.id)}
+  />
+</td>
+
+        <td className="border border-gray-200 p-4 text-center">
+          {(currentPage - 1) * entriesCount + idx + 1}
+        </td>
+
+        <td className="border border-gray-200 p-4 text-center">
+          <div className="flex justify-center">
+            <Image
+              src={category.iconUrl || "/placeholder.png"}
+              alt={category.name}
+              width={32}
+              height={32}
+            />
+          </div>
+        </td>
+
+        <td className="border border-gray-200 p-4 px-6 font-medium text-gray-700">
+          {category.name}
+        </td>
+
+        <td className="border border-gray-200 p-4 text-center">
+          <span
+            className={`px-3 py-1 rounded text-white text-[12px] inline-block min-w-[70px] ${
+              category.isHighlight
+                ? "bg-gradient-to-r from-purple-500 to-pink-500"
+                : "bg-gradient-to-r from-gray-400 to-gray-600"
+            }`}
+          >
+            {category.isHighlight ? "Yes" : "No"}
+          </span>
+        </td>
+
+        <td className="border border-gray-200 p-4 text-center">
+          <span
+            onClick={() => toggleStatus(category.id)}
+            className={`px-3 py-1 rounded text-white text-[12px] cursor-pointer min-w-[70px] ${
+              category.isActive
+                ? "bg-green-500 hover:bg-green-600"
+                : "bg-gray-400 hover:bg-gray-500"
+            }`}
+          >
+            {category.isActive ? "Active" : "Inactive"}
+          </span>
+        </td>
+
+        <td className="border border-gray-200 p-4 text-center">
+          <div className="flex justify-center gap-2">
+            <button
+              onClick={() => setOpenEditCategoryModal(true)}
+              className="bg-blue-500 p-2 rounded text-white hover:bg-blue-600"
+            >
+              <FaPencil size={12} />
+            </button>
+
+            <button
+              onClick={() => {
+                setSelectedId(category.id);
+                setDeleteModalOpen(true);
+              }}
+              className="bg-red-500 p-2 rounded text-white hover:bg-red-600"
+            >
+              <FaTrashAlt size={12} />
+            </button>
+          </div>
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan={7} className="p-10 text-center text-gray-400">
+        Loading categories...
+      </td>
+    </tr>
+  )}
+
+  {!loading && paginatedData.length === 0 && (
+  <tr>
+    <td colSpan={7} className="p-10 text-center text-gray-400">
+      No categories found
+    </td>
+  </tr>
+)}
+</tbody>
+
                         </table>
                     </div>
 
